@@ -156,6 +156,10 @@ record-name:{
  type: String,
  required: true
 },
+artist:{
+ type: String,
+ required: true
+},
 cover-image-URL:{
  type: String,
  required: true
@@ -174,6 +178,10 @@ release-year:{
 },
 status:{
   type: Boolean
+  required: true
+},
+condition:{
+  type:string [enum: 'grat','as new','good', 'used', 'scratch'],
   required: true
 }
 
