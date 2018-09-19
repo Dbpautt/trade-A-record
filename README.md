@@ -76,25 +76,44 @@ Geo Location:
   - body: (empty)
 
 - GET /records
-  - renders the records list 
+  - redirects to /signup if anonymous user
+  - renders the records list if logged in
+
+- GET /records/details/:recordId
+  - redirects to /signup if anonymous user
+  - renders the record details if logged in
+
+- GET /records/request/:recordId
+  - redirects to /signup if anonymous user
+  - renders the record request if logged in
+- POST /records/request/:recordId
+  - redirects to /signup if anonymous user
+  - body:
+      - userId
+      - requested recordId
+      - offered recordId
+      - status: pending
 
 - GET /profile/:userid
-  - renders the user profile + record create form
-
-- POST /events/create 
+  - redirects to /signup if anonymous user
+  - renders the user profile + record create form + pending requests inbound / outbound
+  
+- POST /record/create 
+  - redirects to /signup if anonymous user
+  - body: 
+    - record name
+    - cover image URL 
+    - owner: userId
+    - description
+    - genre
+    - release year
+    
+- POST /records/request/solve/:recordId
   - redirects to / if user is anonymous
   - body: 
-    - name
-    - date
-    - location
-    - description
-- GET /events/:id
-  - renders the event detail page
-  - includes the list of attendees
-  - attend button if user not attending yet
-- POST /events/:id/attend 
-  - redirects to / if user is anonymous
-  - body: (empty - the user is already stored in the session)
+    - update owner recordOne
+    - update owner recordTwo
+    - update status request    
 
 
 ## Models
@@ -102,19 +121,57 @@ Geo Location:
 User model
  
 ```
-username: String
-password: String
+username: {
+type: String, 
+required: true
+},
+email: {
+type: String, 
+required: true
+},
+password: {
+type: String, 
+required: true
+},
+location: {
+type: String, 
+required: false
+},
+genre-preference: {
+type: String, 
+required: false
+}
+
 ```
 
-Event model
+Records model
 
 ```
-owner: ObjectId<User>
-name: String
-description: String
-date: Date
-location: String
-attendees: [ObjectId<User>]
+owner:{
+  type: ObjectId<User>,
+  required: true
+},
+record-name:{
+ type: String,
+ required: true
+},
+cover-image-URL:{
+ type: String,
+ required: true
+},
+description:{
+ type: String,
+ required: true
+},
+genre:{
+ type: String [enum: '','',''],
+ required: true,
+},
+release-year:{
+ type: number,
+ required: true
+}
+
 ``` 
 
 ## Links
