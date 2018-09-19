@@ -23,15 +23,24 @@ Tihs is an app that allows users to exchange vinyl records between them.
 
 List of other features outside of the MVPs scope
 
+Records List:
+- most wanted
+- recently listed
+- previously owned
+
 Login:
 - login with username or email
 
 User profile:
 - reviews
 - see other users profile
+- Edit profile
+
 
 Records:
 - Upload image
+- Delete record
+- Edit record
 - spotify snippet
 - owner history
 - where initialy purchased
@@ -108,7 +117,20 @@ Geo Location:
     - genre
     - release year
     - status
-    
+- POST /record/edit/:recordId 
+  - redirects to /signup if anonymous user
+  - body: 
+    - record name
+    - cover image URL 
+    - owner: userId
+    - description
+    - genre
+    - release year
+    - status
+- POST /record/delete /:recordId
+  - redirects to /signup if anonymous user
+  - Delete record
+
 - POST /records/request/solve/:recordId
   - redirects to / if user is anonymous
   - body: 
