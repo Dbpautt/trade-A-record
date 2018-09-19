@@ -107,12 +107,13 @@ Geo Location:
     - description
     - genre
     - release year
+    - status
     
 - POST /records/request/solve/:recordId
   - redirects to / if user is anonymous
   - body: 
-    - update owner recordOne
-    - update owner recordTwo
+    - update owner recordRequested
+    - update owner recordOffered
     - update status request    
 
 
@@ -170,9 +171,33 @@ genre:{
 release-year:{
  type: number,
  required: true
+},
+status:{
+  type: Boolean
+  required: true
 }
 
+
 ``` 
+
+Trade model
+ 
+```
+status: {
+type: String [enum: 'pending' , 'appoved' , 'rejected'], 
+required: true
+},
+recordRequested: {
+type: ObjectId<record>, 
+required: false
+},
+recordOffered: {
+type: ObjectId<record>, 
+required: false
+},
+
+
+```
 
 ## Links
 
