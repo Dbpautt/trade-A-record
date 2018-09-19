@@ -7,40 +7,54 @@ Tihs is an app that allows users to exchange vinyl records between them.
 ## User Stories
 
 - **404** - As a user I want to receive feedback on the page if I'm getting into a non-existing page.
-- **500** - As a user I want to see a error page when the super team screws it up so that I know that is not my fault
-- **homepage** - As a user I want to be able to access the homepage so that I see what the app is about and login and signup
-- **sign up** - As a user I want to sign up on the webpage so that I can see all the events that I could attend
-- **login** - As a user I want to be able to log in on the webpage so that I can get back to my account
-- **logout** - As a user I want to be able to log out from the webpage so that I can make sure no one will access my account
-- **events list** - As a user I want to see all the events available so that I can choose which ones I want to attend
-- **events create** - As a user I want to create an event so that I can invite others to attend
-- **events detail** - As a user I want to see the event details and attendee list of one event so that I can decide if I want to attend 
-- **event attend** - As a user I want to be able to attend to event so that the organizers can count me in
+- **500** - As a user I want to see an error page when the page is not working because there's a server error and somebody is working.
+- **homepage** - As a user I want to  understand the concept of the website and a short list of records that are currently traded and have the option to signup and login.
+- **sign up** - As a user I want to sign up on the webpage to then trade records with other users.
+- **login** - As a user I want to log in to browse records and to acces my account.
+- **logout** - As a user when I'm done with my session I'd like to logout.
+- **records list** - As a user I want to see all the records currently traded and filter the ones I'm interested in.
+- **record detail** - As a user I want to see the record details and have the option to trade them with a record I own.
+- **record request page** - As a user I want to offer a trade to get a record.
+- **user profile** - As a user I want to see in my profile: a mini brief Bio, the list of records I currently offer and the incoming and outgoing requests. 
+- **records create** - As a user I want to create a record I will trade.
+- **solve request** - As a user I want review the trade offer.
 
 ## Backlog
 
 List of other features outside of the MVPs scope
 
+Login:
+- login with username or email
+
 User profile:
-- see my profile
-- upload my profile picture
+- reviews
 - see other users profile
-- list of events created by the user
-- list events the user is attending
+
+Records:
+- Upload image
+- spotify snippet
+- owner history
+- where initialy purchased
+
+Trade:
+- time limit
+- solve request page - see more details on the offer
+- give reviews
+
 
 Geo Location:
-- add geolocation to events when creating
-- show event in a map in event detail page
-- show all events in a map in the event list page
+- pick users to trade records with that are in your city
+- set handover location after accepting the request
+- show handover location in a map in request detail page
+- show all places in a map where you have trated records
 
-Homepage
-- ...
 
 
 ## ROUTES:
 
 - GET / 
   - renders the homepage
+  
 - GET /auth/signup
   - redirects to / if user logged in
   - renders the signup form (with flash msg)
@@ -61,8 +75,12 @@ Homepage
 - POST /auth/logout
   - body: (empty)
 
-- GET /events
-  - renders the event list + the create form
+- GET /records
+  - renders the records list 
+
+- GET /profile/:userid
+  - renders the user profile + record create form
+
 - POST /events/create 
   - redirects to / if user is anonymous
   - body: 
