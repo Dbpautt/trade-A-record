@@ -1,13 +1,13 @@
 # Project Name
-
+trade-A-record
 ## Description
 
-Describe your project in one/two lines.
+Tihs is an app that allows users to exchange vinyl records between them.
  
 ## User Stories
 
-- **404** - As a user I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault 
-- **500** - As a user I want to see a nice error page when the super team screws it up so that I know that is not my fault
+- **404** - As a user I want to receive feedback on the page if I'm getting into a non-existing page.
+- **500** - As a user I want to see a error page when the super team screws it up so that I know that is not my fault
 - **homepage** - As a user I want to be able to access the homepage so that I see what the app is about and login and signup
 - **sign up** - As a user I want to sign up on the webpage so that I can see all the events that I could attend
 - **login** - As a user I want to be able to log in on the webpage so that I can get back to my account
