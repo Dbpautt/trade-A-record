@@ -38,6 +38,11 @@ app.use(session({
   }
 }))
 
+app.use((req, res, next) => {
+  app.locals.currentUser = req.session.currentUser
+  next()
+})
+
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
