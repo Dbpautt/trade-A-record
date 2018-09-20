@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{title}}</title>
+    <title>trade-A-record</title>
+    <link rel="shortcut icon" href="/images/trade-A-record.png" type="image/x-icon">
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
-  <body>
+  <body class="container">
+    <header>
+      <nav>
+        <a href="/auth/signup">Signup</a> - <a href="/auth/login">Login</a>
+        <form method="POST" action="/auth/logout">
+            <button type="submit">Log out</button>
+        </form>
+      </nav>
+    </header>
     {{{body}}}
   </body>
 </html>
