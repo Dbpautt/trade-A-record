@@ -1,67 +1,64 @@
 # Project Name
+
 trade-A-record
+
 ## Description
 
 Tihs is an app that allows users to exchange vinyl records between them.
  
 ## User Stories
 
-- **404** - As a user I want to receive feedback on the page if I'm getting into a non-existing page.
-- **500** - As a user I want to see an error page when the page is not working because there's a server error and somebody is working.
+- **404** - As a user I want to receive feedback on the page if I get into a non-existing page.
+- **500** - As a user I want to see an error page when the page is not working because there's a server error.
 - **accept requests** - As a user I want to accept a trade offer.
-- **homepage** - As a user I want to  understand the concept of the website and a short list of records that are currently traded and have the option to signup and login.
-- **sign up** - As a user I want to sign up on the webpage to then trade records with other users.
-- **login** - As a user I want to log in to browse records and to acces my account.
-- **logout** - As a user when I'm done with my session I'd like to logout.
-- **records list** - As a user I want to see all the records currently traded .
-- **records detail** - As a user I want to see the record details and have the option to trade them with a record I own.
-- **records request page** - As a user I want to offer a trade to get a record.
-- **records create** - As a user I want to create a record I will trade.
-- **user profiles** - As a user I want to see my profile with a Bio, 
-- **incoming requests** - As a user I want to see the list of my incoming requests
-- **outgoing requests** - As a user I want to see my outgoing requests status.
+- **homepage** - As a user I want to understand the content of the website, and see a short list of records that are currently traded, and have the option to signup and login.
+- **sign up** - As a user I want to sign up to the webpage so that I can then trade records with other users.
+- **login** - As a user I want to log in to browse records, and to acces my account.
+- **logout** - As a user I want to log out of my current session when I'm done.
+- **records list** - As a user I want to see all the records that I am currently trading .
+- **records detail** - As a user I want to see a detailed list of all records currently traded, so that I can then trade them with a record I own.
+- **records request page** - As a user I want to offer a record for trade so that I can get a record I am interested in.
+- **records create** - As a user I want to create a profile of a record I want to trade.
+- **user profiles** - As a user I want to see my profile with a short bio. 
+- **incoming requests** - As a user I want to see the list of the incoming requests
+- **outgoing requests** - As a user I want to see the outgoing trade requests.
 - **my records** -As a user I want to see the list of records I currently offer. 
-- **reject request** - As a user I want to reject a trade offer.
+- **reject request** - As a user I want to be able to reject a record that is offered to me for trade.
 
 ## Backlog
 
-List of other features outside of the MVPs scope
+List of other features outside of the MVPs scope:
 
 Records List:
-- most wanted
-- recently listed
-- previously owned
-- filter the ones I'm interested in.
-
-Login:
-- login with username or email
+- Most wanted
+- Recently listed
+- Previously owned
+- Filter the ones I'm interested in
 
 User profile:
-- reviews
-- see other users profile
+- Reviews
+- See other users' profile
 - Edit profile
-- See requests history
+- See my request history
 
 Records:
 - Upload image
 - Delete record
 - Edit record
-- spotify snippet
-- owner history
-- where initialy purchased
+- Spotify snippet
+- Owner history
+- Where initially purchased
 
 Trade:
-- time limit
-- solve request page - see more details on the offer
-- give reviews
-
+- Time limit
+- Solve request page - see more details about the offer
+- Give reviews
 
 Geo Location:
-- pick users to trade records with that are in your city
-- set handover location after accepting the request
-- show handover location in a map in request detail page
-- show all places in a map where you have trated records
-
+- Pick users to trade records with that are in your city
+- Set handover location after accepting the request
+- Show handover location in a map in request detail page
+- Show all places in a map where you traded records
 
 
 ## ROUTES:
@@ -74,22 +71,24 @@ Geo Location:
 - GET /auth/signup
   - redirects to / if user logged in
   - renders the signup form (with flash msg)
+  
 - POST /auth/signup
   - redirects to / if user logged in
   - body:
     - username
-    - email
     - password
   - redirect to /profile
 
 - GET /auth/login
   - redirects to / if user logged in
   - renders the login form (with flash msg)
+  
 - POST /auth/login
   - redirects to / if user logged in
   - body:
     - username
     - password
+    
 - POST /auth/logout
   - body: (empty)
   - redirect to /
@@ -100,24 +99,23 @@ Geo Location:
 
 - GET /records/:recordId
   - redirects to /signup if anonymous user
-  - next 404 if the record is invalid or the record doesn't exist
-  - renders the record details if logged in
+  - next 404 if records invalid or records don't exist
+  - renders records' details if logged in
 
 - GET /records/:recordId/request
   - redirects to /signup if anonymous user
-  - next 404 if the record is invalid or the record doesn't exist
-  - renders the record request if logged in
+  - next 404 if records invalid or records don't exist
+  - renders records request if logged in
   
 - POST /records/:recordId/request
   - redirects to /signup if anonymous user
-  - redirect to /records/:recordId/request if the record is invalid or the record doesn't exist
+  - redirect to /records/:recordId/request if records invalid or records don't exist
   - body:
       - offered recordId
-  - 
-  
+      
 - GET /profile
   - redirects to /signup if anonymous user
-  - renders the user profile + record create form + pending requests inbound / outbound
+  - renders the user profile + records create form + pending requests inbound / outbound
   
 - POST /records
   - redirects to /signup if anonymous user
@@ -133,7 +131,7 @@ Geo Location:
   
 - GET /records/:recordId
   - redirects to /signup if anonymous user
-  - renders the record detail page
+  - renders records detail page
 
 - POST /trades/:tradeId/approve
   - redirects to / if user is anonymous
@@ -178,7 +176,6 @@ isActive:{
   type: Boolean
   required: true
 },
-
 artist:{
  type: String,
  required: true
@@ -231,8 +228,6 @@ requestApprover: {
 type: ObjectId<record.owner>, 
 required: false
 }
-
-
 
 ```
 
