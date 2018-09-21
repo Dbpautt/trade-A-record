@@ -8,7 +8,7 @@ const saltRounds = 10
 
 router.get('/signup', (req, res, next) => {
   if (req.session.currentUser) {
-    return res.redirect('/')
+    return res.redirect('/profile')
   }
   const signupError = req.flash('signup-form-error')
   const usernameError = req.flash('username-form-error')
@@ -23,7 +23,7 @@ router.get('/signup', (req, res, next) => {
 
 router.post('/signup', (req, res, next) => {
   if (req.session.currentUser) {
-    return res.redirect('/')
+    return res.redirect('/profile')
   }
   const { username, password } = req.body
   if (!username || !password) {
@@ -43,7 +43,7 @@ router.post('/signup', (req, res, next) => {
       return user.save()
         .then(() => {
           req.session.currentUser = user
-          res.redirect('/')
+          res.redirect('/profile')
         })
     })
     .catch(next)
@@ -51,7 +51,7 @@ router.post('/signup', (req, res, next) => {
 
 router.get('/login', (req, res, next) => {
   if (req.session.currentUser) {
-    return res.redirect('/')
+    return res.redirect('/profile')
   }
   const loginError = req.flash('login-form-error')
   const loginData = req.flash('login-form-data')
@@ -66,7 +66,7 @@ router.get('/login', (req, res, next) => {
 
 router.post('/login', (req, res, next) => {
   if (req.session.currentUser) {
-    return res.redirect('/')
+    return res.redirect('/profile')
   }
   const { username, password } = req.body
   if (!username || !password) {
@@ -85,7 +85,7 @@ router.post('/login', (req, res, next) => {
         return res.redirect('/auth/login')
       }
       req.session.currentUser = result
-      res.redirect('/')
+      res.redirect('/profile')
     })
     .catch(next)
 })
