@@ -1,5 +1,6 @@
 'use strict'
 
+require('dotenv').config()
 const express = require('express')
 const path = require('path')
 const cookieParser = require('cookie-parser')
@@ -16,7 +17,7 @@ const app = express()
 
 // -- connect to mongoose
 mongoose.Promise = Promise
-mongoose.connect('mongodb://localhost/trade-a-record', {
+mongoose.connect(process.env.MONGODB_URI, {
   keepAlive: true,
   useNewUrlParser: true,
   reconnectTries: Number.MAX_VALUE
