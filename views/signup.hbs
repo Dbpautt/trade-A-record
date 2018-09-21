@@ -12,12 +12,15 @@
     <label>Password: </label>
     <input type="password" name="password" placeholder="Your password"/>
   </div>
+  <div class="form-message">
     {{#if message1}}
       <p class="validation">{{message1}}</p>
     {{/if}}
     {{#if message2}}
       <p class="validation">{{message2}}</p>
     {{/if}}
+  </div>
+
   <div class="field submit">
     <button type="submit">Submit</button>
   </div>

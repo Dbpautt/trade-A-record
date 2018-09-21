@@ -1,0 +1,57 @@
+
+.section.resources {
+  background-color: $color-aside-bg;
+  padding: 20px;
+  border-radius: 5px;
+  
+  ul {
+    list-style: none;
+    padding-left:0;
+  }
+    
+  li:hover {
+    opacity: 0.7;
+  }
+
+  .icon {
+    position: relative;
+    padding-left: 25px;
+    text-decoration: none;
+    color: black;
+    
+    &::after {
+      content: "";
+      background-size: 20px; 
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      left: 0;
+    }
+  }
+
+  .icon-documentation::after{
+    background: url('../images/contract.png');
+    background-size: 20px; 
+  }
+  
+  .icon-exercises::after{
+    background: url('../images/html-tag.png');
+    background-size: 20px; 
+  }
+  
+  .icon-events::after{
+    background: url('../images/calendar.png');
+    background-size: 20px; 
+  } 
+    
+  form {
+    display: inline;
+  }
+}
+
+
+
+
+
+
+

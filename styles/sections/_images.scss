@@ -1,0 +1,13 @@
+
+.section.images {
+  padding: 20px;
+  background-color: $color-aside-bg;
+  border-radius: 5px;
+  ul {
+    padding: 0;
+    list-style: none;
+  }
+  img {
+    width: 100%;
+  }
+}

@@ -1,0 +1,36 @@
+.expandable {
+  .handler {
+    cursor: pointer;
+  }
+  
+  .expand {
+    display: inline;
+  }
+  
+  .collapse {
+    display: none;
+  }
+  
+  .handler:hover {
+    background-color: #ccc;
+  }
+  
+  .content {
+    display: none;
+  }
+  
+  &.expanded {
+    .content {
+      display: block;
+    }
+    
+    .expand {
+      display: none;
+    }
+    
+    .collapse {
+      display: inline;
+    }
+  } 
+}
+

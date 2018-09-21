@@ -4,7 +4,13 @@ trade-A-record
 
 ## Description
 
-Tihs is an app that allows users to exchange vinyl records between them.
+This is an app that allows users to exchange vinyl records between them.
+
+
+*This project uses SCSS. Use the following line to compile to CSS while you are coding:*
+
+
+```node-sass --output-style compressed --source-map true --watch styles/style.scss public/stylesheets/style.css```
  
 ## User Stories
 

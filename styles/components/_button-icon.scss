@@ -1,0 +1,12 @@
+.button-icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  background: url('') no-repeat center center;
+  background-size: 15px; 
+  
+  &:hover{
+    cursor: pointer;
+    opacity: .5;
+  }
+}

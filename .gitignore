@@ -59,3 +59,7 @@ typings/
 
 # next.js build output
 .next
+
+# SASS
+public/stylesheets/*.css
+public/stylesheets/*.map
