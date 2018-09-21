@@ -170,70 +170,26 @@ required: false
 Records model
 
 ```
-owner:{
-  type: ObjectId<User>,
-  required: true
-},
-recordName:{
- type: String,
- required: true
-},
-isActive:{
-  type: Boolean
-  required: true
-},
-artist:{
- type: String,
- required: true
-},
-coverImageURL:{
- type: String,
- required: true
-},
-description:{
- type: String,
- required: true
-},
-genre:{
- type: String [enum: '','',''],
- required: true,
-},
-releaseYear:{
- type: number,
- required: true
-},
-,
-condition:{
-  type:string [enum: 'great','as new','good', 'used', 'scratched'],
-  required: true
-}
-
+owner: ObjectId<User> - required,
+recordName: String - required,
+isActive: Boolean - required,
+artist: String - required,
+coverImageURL: String - required,
+description: String - required,
+genre: String enum: ['country', 'pop', 'rock', 'metal', 'hip-hop', 'punk', 'alternative'] - required,
+releaseYear: Number - required,
+condition: string enum: ['great','as new','good', 'used', 'scratched'] - required
 
 ``` 
 
 Trade model
  
 ```
-status: {
-type: String [enum: 'pending' , 'approved' , 'rejected'], 
-required: true
-},
-recordRequested: {
-type: ObjectId<record.record-name>, 
-required: false
-},
-recordOffered: {
-type: ObjectId<record.record-name>, 
-required: false
-},
-requestMaker: {
-type: ObjectId<record.owner>, 
-required: false
-},
-requestApprover: {
-type: ObjectId<record.owner>, 
-required: false
-}
+status: String enum: ['pending' , 'approved' , 'rejected'] - required,
+recordRequested: ObjectId<record.record-name> - required,
+recordOffered: ObjectId<record.record-name> - required,
+requestMaker: ObjectId<user> - required,
+requestApprover: ObjectId<user>, - required
 
 ```
 

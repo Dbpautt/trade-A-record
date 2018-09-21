@@ -2,10 +2,12 @@
 
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const ObjectId = Schema.Types.ObjectId
 
 const recordSchema = new Schema({
   owner: {
-    type: String,
+    type: ObjectId,
+    ref: 'User',
     required: true
   },
   recordName: {
