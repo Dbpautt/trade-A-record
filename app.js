@@ -15,6 +15,7 @@ const indexRouter = require('./routes/index')
 const authRouter = require('./routes/auth')
 const profileRouter = require('./routes/profile')
 const tradesRouter = require('./routes/trades')
+const recordsRouter = require('./routes/records')
 
 const app = express()
 
@@ -58,6 +59,7 @@ app.use('/', indexRouter)
 app.use('/auth', authRouter)
 app.use('/trades', tradesRouter)
 app.use('/profile', profileRouter)
+app.use('/records', recordsRouter)
 
 app.use((req, res, next) => {
   res.status(404)

@@ -7,7 +7,6 @@
     "start-dev": "nodemon ./bin/www",
     "seed-records": "node ./bin/seed/records.js",
     "seed-users": "node ./bin/seed/users.js"
-
   },
   "dependencies": {
     "bcrypt": "^3.0.0",

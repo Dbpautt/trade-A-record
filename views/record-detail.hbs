@@ -1,0 +1,28 @@
+<h1>{{this.recordName}}</h1>
+
+<ul class="record-list">
+    {{#each records}}
+    <li class="record">
+        <div>
+          <img src="{{this.coverImageURL}}" alt="">
+        </div>
+        <div>
+          <h3>{{this.artist}}</h3>
+          <h3>{{this.description}}</h3>
+          <h3>{{this.genre}}</h3>
+          <h3>{{this.releaseYear}}</h3>
+          <h3>{{this.condition}}</h3>
+        </div>
+
+      {{!-- <div> --}}
+      {{!-- <a class="button" href="/projects/{{this.id}}" class="button">More information</a>
+      <form class="delete" action="/projects/{{this.id}}/delete" method="POST">
+        <button class="button danger">Delete</button>
+      </form> --}}
+      {{!-- </div> --}}
+    </li>
+    {{/each}}
+  </ul>
+
+
+  

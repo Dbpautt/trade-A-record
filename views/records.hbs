@@ -1,8 +1,5 @@
-<h2>Welcome to trade-A-record </h2>
-<p>trade-A-record is a Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-</p>
-<h3>records available</h3>
-<h3>All records</h3>
+<h1>All records</h1>
+
 <ul class="record-list">
     {{#each records}}
     <li class="record">
@@ -15,7 +12,7 @@
         </div>
 
       <div>
-      <a class="button" href="/records/{{this.id}}" class="button">More information</a>
+        <a class="button" href="/records/{{this.id}}" class="button">More information</a>
       {{!-- <form class="delete" action="/projects/{{this.id}}/delete" method="POST">
         <button class="button danger">Delete</button>
       </form> --}}
@@ -23,3 +20,6 @@
     </li>
     {{/each}}
   </ul>
+
+
+  

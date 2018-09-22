@@ -6,6 +6,7 @@
     <title>trade-A-record</title>
     <link rel="shortcut icon" href="/images/trade-A-record.png" type="image/x-icon">
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800" rel="stylesheet">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
   </head>
@@ -19,7 +20,7 @@
         {{/unless}}
         {{#if currentUser}}
         <li>
-          <p>Logged in as: {{currentUser.username}}</p> 
+          <p>Logged in as: </p><a class="button" href="/profile">{{currentUser.username}}</a>
           <form method="POST" action="/auth/logout">
             <button type="submit">Log Out</button>
           </form>
