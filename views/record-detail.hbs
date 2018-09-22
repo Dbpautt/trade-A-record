@@ -13,13 +13,14 @@
           <h3>{{this.releaseYear}}</h3>
           <h3>{{this.condition}}</h3>
         </div>
-
-      {{!-- <div> --}}
-      {{!-- <a class="button" href="/projects/{{this.id}}" class="button">More information</a>
-      <form class="delete" action="/projects/{{this.id}}/delete" method="POST">
+      {{#unless currentUser}}
+      <div>
+      <a class="button" href="/records/{{this.id}}/trade" class="button">Request</a>
+      {{!-- <form class="delete" action="/projects/{{this.id}}/delete" method="POST">
         <button class="button danger">Delete</button>
       </form> --}}
-      {{!-- </div> --}}
+      </div>
+      {{/unless}}
     </li>
     {{/each}}
   </ul>

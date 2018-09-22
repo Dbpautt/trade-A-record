@@ -15,11 +15,12 @@ router.get('/', (req, res, next) => {
       const data = {
         records: results
       }
-      res.render('records', data)
     })
     .catch((error) => {
       console.log('there has been an error', error)
     })
+
+  res.render('records', data)
 })
 
 /* GET records detail page. */
@@ -42,4 +43,36 @@ router.get('/:recordId', (req, res, next) => {
     })
 })
 
+router.get('/:recordId/trade', (req, res, next) => {
+  const id = req.params.recordId
+
+  // if (!ObjectId.isValid(id)) {
+  //   return res.redirect('/projects');
+  // }
+  Records.find({ _id: id })
+    .then((results) => {
+      const data = {
+        records: results
+      }
+      res.render('record-trade', data)
+    })
+    .catch((error) => {
+      console.log('there has been an error', error)
+      return res.redirect('/records')
+    })
+})
+
 module.exports = router
+
+// router.get('/records', (req, res, next) => {
+//   Records.find({ owner: req.session.currentUser._id })
+//     .then((results) => {
+//       const data = {
+//         records: results
+//       }
+//       res.render('own-records', data)
+//     })
+//     .catch((error) => {
+//       console.log('there has been an error', error)
+//     })
+// })
