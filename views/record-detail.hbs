@@ -15,7 +15,10 @@
         </div>
       {{#unless currentUser}}
       <div>
-      <a class="button" href="/records/{{this.id}}/trade" class="button">Request</a>
+        <form method="POST" action="/records/{{this.id}}/{{this.owner}}/trade">
+            <button type="submit">Request</button>
+          </form>
+      {{!-- <a class="button" href="/records/{{this.id}}/trade" class="button">Request</a> --}}
       {{!-- <form class="delete" action="/projects/{{this.id}}/delete" method="POST">
         <button class="button danger">Delete</button>
       </form> --}}
