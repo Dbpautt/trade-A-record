@@ -46,9 +46,15 @@
   padding-top: 20px;
 }
 
-.record {
+.record-list {
   display: flex;
-  padding: 10px;
+  flex-wrap: wrap;
+}
+
+.record {
+  width: 48%;
+  margin: 2px;
+  background-color: #eee
 }
 
 .record img {
@@ -56,8 +62,13 @@
 }
 
 .record div {
-  width: 50%;
-  padding: 10px;
+  width: 100%;
+  padding: 1px;
+}
+
+.record a {
+  text-decoration: none;
+  color: #222;
 }
 
 @media (min-width: 768px) {
@@ -72,7 +83,20 @@
   }
 
   .record {
-    width: 50%;
+    width: 48%;
+    position: relative;
+  }
+
+  .record>img {
+    width: 100%;
+  }
+
+  .record>h3 {
+    position: absolute;
+  }
+
+  .record a:hover {
+    color: white;
   }
 }
 

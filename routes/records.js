@@ -46,18 +46,21 @@ router.get('/:recordId', (req, res, next) => {
 router.post('/:recordId/:ownerId/trade', (req, res, next) => {
   const id = req.params.recordId
   const owner = req.params.ownerId
-  // const { status, recordRequested, recordOffered, requestMaker, requestApprover } = req.body;
 
-  // if (!name || !studentName || !presentationURL || !projectURL || !imageURL) {
-  //   req.flash('project-form-error', 'all fields are mandatory');
-  //   req.flash('project-form-data', { name, studentName, presentationURL, projectURL, imageURL });
-  //   return res.redirect('/projects/create');
-  // }
-
-  const trade = new Trade({ status: 'pending', recordRequested: id, recordOffered: req.session.currentUser._id, requestMaker: req.session.currentUser._id, requestApprover: owner })
-  trade.save()
-    .then(() => {
-      res.redirect('/')
+  Records.find({ owner: req.session.currentUser._id })
+    .then((results) => {
+      let myRecords = results
+      const trade = new Trade({ status: 'pending', recordRequested: id, recordOffered: myRecords, requestMaker: req.session.currentUser._id, requestApprover: owner })
+      trade.save()
+        .then(() => {
+          Trade.find(trade)
+            .then((results) => {
+              const data = {
+                trade: results
+              }
+              res.render('record-trade', data)
+            })
+        })
     })
     .catch(next)
 })

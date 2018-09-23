@@ -1,26 +1,24 @@
-<h1>Make your trade</h1>
+<h1>This is your trade</h1>
 
 <ul class="record-list">
-    {{#each records}}
+    {{#each trade}}
     <li class="record">
         <div>
-          <img src="{{this.coverImageURL}}" alt="">
+          <img src="{{this.recordRequested.coverImageURL}}" alt="">
         </div>
     </li>
     {{/each}}
   </ul>
   <hr>
-  <h1>{{example}}</h1>
-
-  {{!-- <ul class="record-list">
-    {{#each records}}
+  <ul class="record-list">
+    {{#each trade}}
     <li class="record">
         <div>
-          <img src="{{this.coverImageURL}}" alt="">
+          <img src="{{this.recordOffered.coverImageURL}}" alt="">
         </div>
         <div>
-          <h2>{{this.recordName}}</h2>
-          <h3>{{this.artist}}</h3>
+          <h2>{{this.recordOffered.recordName}}</h2>
+          <h3>{{this.recordOffered.artist}}</h3>
         </div>
 
       <div>
@@ -28,5 +26,5 @@
       </div>
     </li>
     {{/each}}
-  </ul> --}}
+  </ul>
 
