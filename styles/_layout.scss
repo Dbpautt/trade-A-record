@@ -1,11 +1,14 @@
+@import '_variables';
+
+
 //----Burger menu button----
 .navbar-toggle-button {
   z-index: 100;
   position: fixed;
-  top: 15px;
-  right:15px;
-  margin-left:-15px;
-  height: 20px;
+  top: 30px;
+  right: 25px;
+  margin-left: -15px;
+  height: 30px;
   width: 30px;
   cursor: pointer;
   transition: opacity .25s ease; 
@@ -22,39 +25,40 @@
   cursor: pointer; 
 }
  .navbar-toggle-button span:nth-of-type(2) {
-    top: 6px; 
+    top: 7px; 
 }
   .navbar-toggle-button span:nth-of-type(3) {
-    top: 12px; 
+    top: 14px; 
 }
 
 /*Change class on click*/
 
 .navbar-toggle-button.open span.top {
-  transform: translateY(6px) translateX(0) rotate(45deg); 
+  transform: translateY(7px) translateX(0) rotate(45deg); 
 }
 .navbar-toggle-button.open span.middle {
   opacity: 0; 
 }
 .navbar-toggle-button.open span.bottom {
-  transform: translateY(-6px) translateX(0) rotate(-45deg); 
+  transform: translateY(-7px) translateX(0) rotate(-45deg); 
 }
 
 #main-nav {
   box-sizing:border-box;
   position: fixed;
-  height:auto;
+  height: 100%;
   width:100%;
   top:-100%;
   left: 0;
   color:#fff;
   transition: all .4s; 
-  background:darkgray;
+  background: $color-prime;
+  opacity: 0.95;
   text-align:center;
 }
 
 #main-nav.open{
-  height:auto;
+  height: 100%;
   top:0;
   }
 
@@ -65,23 +69,29 @@
   padding: 20px 0px;
 }
 
-#site-header a {
-  text-decoration: none;
-  color: #222; 
-}
 
-#site-header h1 {
+#site-header h1 a {
   flex: 4;
+  color: $color-prime;
+  text-decoration: none;
 }
 
 #site-header main-nav {
   flex: 1;
 }
 
+.navigation ul {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: auto 0;
+}
+
 #site-header li{
+  flex: 1;
   list-style: none;
-  display: inline;
-  padding-right: 10px;
+  padding: 20px;
 }
 
 #site-header li:last-child{
@@ -108,9 +118,15 @@
 }
 
 .record {
-  width: 48%;
+  width: 100%;
   margin: 2px;
-  background-color: #eee
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.record:hover {
+  background-color: #ff4848;
 }
 
 .record img {
@@ -139,8 +155,9 @@
   }
 
   .record {
-    width: 48%;
+    width: 47%;
     position: relative;
+    margin: 0 10px 30px 10px;
   }
 
   .record>img {

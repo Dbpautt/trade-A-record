@@ -19,19 +19,29 @@
       </div>
     <nav id="main-nav" class="navigation">
       <ul>
+        {{#if currentUser}}
+        <li><span class="auth">Hello, <a href="/profile">{{currentUser.username}}</a>!</span></li>
+        {{/if}}
+        <li></li>
+        <li></li>
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/profile/inbox">Inbox</a></li>
+        <li><a href="/profile/requests">Requests</a></li>
+        <li><a href="/profile/records">Records</a></li>
+        <li></li>
+        <li></li>
         {{#unless currentUser}}
-        <li><a href="/auth/signup">Sign Up</a></li>
-        <li><a href="/auth/login">Log In</a></li>
+        <li class="auth"><a href="/auth/signup">Sign Up</a></li>
+        <li class="auth"><a href="/auth/login">Log In</a></li>
         <li><a href="https://www.songkick.com/metro_areas/28714-spain-barcelona" target="_blank">Other stuff</a></li>
         <li><a href="http://www.lolcats.com/" target="_blank">Cats</a></li>
         {{/unless}}
         {{#if currentUser}}
-        <li>
-          <p>Logged in as: </p><a href="/profile">{{currentUser.username}}</a>
+       
           <form method="POST" action="/auth/logout">
-            <button type="submit">Log Out</button>
+            <button class="auth" type="submit">Log Out</button>
           </form>
-        </li>
+       
         {{/if}}
       </ul>
     </nav>

@@ -5,19 +5,16 @@
 <h3>All records</h3>
 <ul class="record-list">
     {{#each records}}
-    <li class="record">
+    <li>
       <a href="/records/{{this.id}}">
-        <div>
+        <div class="record">
           <img src="{{this.coverImageURL}}" alt="">
         </div>
-        <div>
+        <div class="record-info">
           <h3>{{this.artist}}</h3>
           <h3>{{this.name}}</h3>
         </div>
       </a>  
-
-
-  
     </li>
     {{/each}}
   </ul>
