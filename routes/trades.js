@@ -27,10 +27,19 @@ router.get('/:tradeId', (req, res, next) => {
       if (!results.length) {
         return next()
       }
-      const data = {
-        records: results
-      }
-      res.render('trade-detail', data)
+      const requestedRecordId = results[0].recordRequested
+      return Records.findOne({ _id: requestedRecordId })
+        .then((result) => {
+          const offeredRecordId = results[0].recordOffered
+          return Records.findOne({ _id: offeredRecordId })
+            .then((result2) => {
+              const data = {
+                requestedRecord: result,
+                offeredRecord: result2
+              }
+              res.render('trade-detail', data)
+            })
+        })
     })
     .catch(next)
 })

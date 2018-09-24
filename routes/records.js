@@ -7,7 +7,7 @@ const ObjectId = require('mongoose').Types.ObjectId
 
 const Records = require('../models/record')
 const Trade = require('../models/trade')
-const User = require('../models/user')
+// const User = require('../models/user')
 
 /* GET records page. */
 router.get('/', (req, res, next) => {
@@ -31,14 +31,17 @@ router.get('/:recordId', (req, res, next) => {
   if (!ObjectId.isValid(id)) {
     return next()
   }
-  Records.find({ _id: id })
-    .then((results) => {
-      if (!results.length) {
+  Records.findOne({ _id: id })
+    .then((result) => {
+      if (!result) {
         return next()
       }
       const data = {
-        records: results
+        record: result
       }
+      console.log(req.session.currentUser._id.toString())
+      console.log(result.owner.toString())
+      console.log('test end')
       res.render('record-detail', data)
     })
     .catch(next)
@@ -56,6 +59,9 @@ router.get('/:recordId/request', (req, res, next) => {
   Records.findOne({ _id: id })
     .then((result) => {
       if (!result) {
+        return next()
+      }
+      if (result.owner.equals(req.session.currentUser._id)) {
         return next()
       }
       return Records.find({ owner: req.session.currentUser._id })
@@ -90,13 +96,9 @@ router.post('/:requestedRecordId/:offeredRecordId/request', (req, res, next) => 
           if (!offeredRecord) {
             return next()
           }
-          const id1 = req.session.currentUser._id
-          const id2 = offeredRecord.owner
-          console.log(id1)
-          console.log(id2)
-          // if (id1.equals(id2)) {
-          //   return next()
-          // }
+          if (!offeredRecord.owner.equals(req.session.currentUser._id)) {
+            return next()
+          }
           const data = {
             recordRequested: requestedRecordId,
             recordOffered: offeredRecordId,

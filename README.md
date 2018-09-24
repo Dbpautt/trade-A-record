@@ -119,6 +119,11 @@ Geo Location:
   - redirects to /signup if anonymous user
   - redirect to /records/:recordId/request if records invalid or records don't exist or offrerd record not owned by current user
   - body: (empty)
+
+- GET /trades/:tradeId
+  - redirects to /signup if anonymous user
+  - next 404 if trade invalid or trade don't exist
+  - renders trade's details if logged in
       
 - GET /profile
   - redirects to /signup if anonymous user
@@ -172,7 +177,7 @@ Records model
 
 ```
 owner: ObjectId<User> - required,
-recordName: String - required,
+name: String - required,
 isActive: Boolean - required,
 artist: String - required,
 coverImageURL: String - required,

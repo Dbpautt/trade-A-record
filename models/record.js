@@ -10,7 +10,7 @@ const recordSchema = new Schema({
     ref: 'User',
     required: true
   },
-  recordName: {
+  name: {
     type: String,
     required: true
   },

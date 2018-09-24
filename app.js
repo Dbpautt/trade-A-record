@@ -2,6 +2,7 @@
 
 require('dotenv').config()
 const express = require('express')
+const hbs = require('hbs')
 const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
@@ -25,6 +26,14 @@ mongoose.connect(process.env.MONGODB_URI, {
   keepAlive: true,
   useNewUrlParser: true,
   reconnectTries: Number.MAX_VALUE
+})
+
+//
+hbs.registerHelper('ifCond', function (v1, v2, options) {
+  if (v1 === v2) {
+    return options.fn(this)
+  }
+  return options.inverse(this)
 })
 
 // view engine setup

@@ -1,28 +1,31 @@
-<h1>{{this.recordName}}</h1>
 
-<ul class="record-list">
-    {{#each records}}
-    <li class="record">
+
+    <div class="record">
+        <h1>{{record.name}}</h1>
         <div>
-          <img src="{{this.coverImageURL}}" alt="">
+          <img src="{{record.coverImageURL}}" alt="">
         </div>
         <div>
-          <h3>{{this.artist}}</h3>
-          <h3>{{this.description}}</h3>
-          <h3>{{this.genre}}</h3>
-          <h3>{{this.releaseYear}}</h3>
-          <h3>{{this.condition}}</h3>
+          <h3>{{record.artist}}</h3>
+          <h3>{{record.description}}</h3>
+          <h3>{{record.genre}}</h3>
+          <h3>{{record.releaseYear}}</h3>
+          <h3>{{record.condition}}</h3>
+          <h3>{{currentUser._id}}</h3>
+          <h3>{{record.owner}}</h3>
+
         </div>
-      {{#unless currentUser}}
-      <div>
-      <a class="button" href="/records/{{this.id}}/request" class="button">Request</a>
-      {{!-- <form class="delete" action="/projects/{{this.id}}/delete" method="POST">
-        <button class="button danger">Delete</button>
-      </form> --}}
-      </div>
-      {{/unless}}
-    </li>
-    {{/each}}
+      {{!-- {{#ifCond records.owner currentUser._id}}
+        hello is equal to hello
+      {{else}} --}}
+        <div>
+        <a class="button" href="/records/{{record.id}}/request" class="button">Request</a>
+        {{!-- <form class="delete" action="/projects/{{record.id}}/delete" method="POST">
+          <button class="button danger">Delete</button>
+        </form> --}}
+        </div>
+      {{!-- {{/ifCond}} --}}
+    </div>
   </ul>
 
 
