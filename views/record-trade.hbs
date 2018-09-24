@@ -1,28 +1,35 @@
 <h1>This is your trade</h1>
 
-<ul class="record-list">
-    {{#each trade}}
-    <li class="record">
+
+  {{#unless requestedRecord}}
+  <h2>no record found</h2>
+  {{/unless}}
+    <div class="record">
         <div>
-          <img src="{{this.recordRequested.coverImageURL}}" alt="">
+          <img src="{{requestedRecord.coverImageURL}}" alt="">
         </div>
-    </li>
-    {{/each}}
-  </ul>
+    </div>
+
   <hr>
+  {{#unless myRecords.length}}
+  <h4>dude you have no records to trade <a class"button" href="/profile">create one</a> first!</h4>
+  {{/unless}}
   <ul class="record-list">
-    {{#each trade}}
+    {{#each myRecords}}
     <li class="record">
         <div>
-          <img src="{{this.recordOffered.coverImageURL}}" alt="">
+          <img src="{{this.coverImageURL}}" alt="">
         </div>
         <div>
-          <h2>{{this.recordOffered.recordName}}</h2>
-          <h3>{{this.recordOffered.artist}}</h3>
+          <h2>{{this.recordName}}</h2>
+          <h3>{{this.artist}}</h3>
         </div>
 
       <div>
-      <a class="button" href="/records/{{this.id}}" class="button">More information</a>
+      {{!-- <a class="button" href="/records/{{this.id}}" class="button">More information</a> --}}
+      <form action="/records/{{requestedRecord.id}}/request" method="POST">
+        <button>Offer</button>
+      </form>
       </div>
     </li>
     {{/each}}

@@ -15,11 +15,11 @@ const tradeSchema = new Schema({
     ref: 'Record',
     required: true
   },
-  recordOffered: [{
-    type: ObjectId,
+  recordOffered: {
+    type: Object,
     ref: 'Record',
     required: true
-  }],
+  },
   requestMaker: {
     type: ObjectId,
     ref: 'User',

@@ -111,6 +111,8 @@ Geo Location:
 - GET /records/:recordId/request
   - redirects to /signup if anonymous user
   - next 404 if records invalid or records don't exist
+  - load the requested record
+  - load the logged in user`s records
   - renders records request if logged in
   
 - POST /records/:recordId/request
