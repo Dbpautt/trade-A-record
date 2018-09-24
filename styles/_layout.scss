@@ -57,6 +57,7 @@
   height:auto;
   top:0;
   }
+
 //----Site header----
 #site-header {
   display: flex;
@@ -73,7 +74,7 @@
   flex: 4;
 }
 
-#site-header nav {
+#site-header main-nav {
   flex: 1;
 }
 
@@ -157,23 +158,22 @@
 
 //----Site footer----
 #site-footer {
+  display: flex;
   color: black;
   background: darkgray;
   padding: 20px 0;
-  text-align: center;
-  position: fixed;
   height: 150px;
   bottom: 0px;
   left: 0px;
   right: 0px;
-  margin-top: -50px;
+  flex: 3;
   }
   
-
 #site-footer .social-media {
-  display: flex;
-  justify-content: space-around;
+  list-style: none;
+  display: inline;
   padding-top: 20px;
+  color: white;
 }
 
 #site-footer .social-media li {
@@ -209,8 +209,7 @@
   padding: 0;
   margin-left: 20px;
   font-size: 12px;
-  display: inline-block;
-  vertical-align: top;
+  justify-content: center;
 }
-}
+
 
