@@ -8,6 +8,7 @@ const tradeSchema = new Schema({
   status: {
     type: String,
     enum: ['pending', 'approved', 'rejected'],
+    default: 'pending',
     required: true
   },
   recordRequested: {

@@ -24,17 +24,17 @@ router.get('/', (req, res, next) => {
 /* GET records detail page. */
 router.get('/:recordId', (req, res, next) => {
   if (!req.session.currentUser) {
-    res.redirect('/auth/signup')
+    return res.redirect('/auth/signup')
   }
   const id = req.params.recordId
 
   if (!ObjectId.isValid(id)) {
-    return res.redirect('/records')
+    return next()
   }
   Records.find({ _id: id })
     .then((results) => {
-      if (!ObjectId.isValid(id)) {
-        return res.redirect('/records')
+      if (!results.length) {
+        return next()
       }
       const data = {
         records: results
@@ -46,19 +46,19 @@ router.get('/:recordId', (req, res, next) => {
 
 router.get('/:recordId/request', (req, res, next) => {
   if (!req.session.currentUser) {
-    res.redirect('/auth/signup')
+    return res.redirect('/auth/signup')
   }
   const id = req.params.recordId
 
   if (!ObjectId.isValid(id)) {
-    return res.redirect('/records')
+    return next()
   }
   Records.findOne({ _id: id })
     .then((result) => {
-      if (!ObjectId.isValid(id)) {
-        return res.redirect('/records')
+      if (!result) {
+        return next()
       }
-      Records.find({ owner: req.session.currentUser._id })
+      return Records.find({ owner: req.session.currentUser._id })
         .then(results => {
           if (!ObjectId.isValid(id)) {
             return res.redirect('/records')
@@ -73,26 +73,46 @@ router.get('/:recordId/request', (req, res, next) => {
     .catch(next)
 })
 
-// router.post('/:recordId/:ownerId/trade', (req, res, next) => {
-// if (!req.session.currentUser) {
-//   res.redirect('/auth/signup')
-// }
-//   const id = req.params.recordId
-//   const owner = req.params.ownerId
+router.post('/:requestedRecordId/:offeredRecordId/request', (req, res, next) => {
+  if (!req.session.currentUser) {
+    return res.redirect('/auth/signup')
+  }
+  const requestedRecordId = req.params.requestedRecordId
+  const offeredRecordId = req.params.offeredRecordId
 
-//   Records.find({ owner: req.session.currentUser._id })
-//     .then((results) => {
-//       let myRecords = results
-//       const trade = new Trade({ status: 'pending', recordRequested: id, recordOffered: myRecords, requestMaker: req.session.currentUser._id, requestApprover: owner })
-//       trade.save()
-//         .then(() => {
-//           console.log(trade._id)
-//           var tradeID = trade._id
-//           res.redirect(`/records/trade/${tradeID}`)
-//         })
-//     })
-//     .catch(next)
-// })
+  Records.findOne({ _id: requestedRecordId })
+    .then((requestedRecord) => {
+      if (!requestedRecord) {
+        return next()
+      }
+      return Records.findOne({ _id: offeredRecordId })
+        .then((offeredRecord) => {
+          if (!offeredRecord) {
+            return next()
+          }
+          const id1 = req.session.currentUser._id
+          const id2 = offeredRecord.owner
+          console.log(id1)
+          console.log(id2)
+          // if (id1.equals(id2)) {
+          //   return next()
+          // }
+          const data = {
+            recordRequested: requestedRecordId,
+            recordOffered: offeredRecordId,
+            requestMaker: req.session.currentUser._id,
+            requestApprover: requestedRecord.owner }
+          const trade = new Trade(data)
+          return trade.save()
+            .then(() => {
+              console.log(trade._id)
+              var tradeID = trade._id
+              res.redirect(`/trades/${tradeID}`)
+            })
+        })
+    })
+    .catch(next)
+})
 
 // _______________________________________________________
 

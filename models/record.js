@@ -5,11 +5,11 @@ const Schema = mongoose.Schema
 const ObjectId = Schema.Types.ObjectId
 
 const recordSchema = new Schema({
-  owner: [{
+  owner: {
     type: ObjectId,
     ref: 'User',
     required: true
-  }],
+  },
   recordName: {
     type: String,
     required: true

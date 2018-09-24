@@ -115,11 +115,10 @@ Geo Location:
   - load the logged in user`s records
   - renders records request if logged in
   
-- POST /records/:recordId/request
+- POST /records/:requestedRecordId/:offeredRecordId/request
   - redirects to /signup if anonymous user
-  - redirect to /records/:recordId/request if records invalid or records don't exist
-  - body:
-      - offered recordId
+  - redirect to /records/:recordId/request if records invalid or records don't exist or offrerd record not owned by current user
+  - body: (empty)
       
 - GET /profile
   - redirects to /signup if anonymous user
