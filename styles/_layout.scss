@@ -1,3 +1,63 @@
+//----Burger menu button----
+.navbar-toggle-button {
+  z-index: 100;
+  position: fixed;
+  top: 15px;
+  right:15px;
+  margin-left:-15px;
+  height: 20px;
+  width: 30px;
+  cursor: pointer;
+  transition: opacity .25s ease; 
+}
+.navbar-toggle-button span {
+  background: #000;
+  border: none;
+  height: 3px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all .4s ease;
+  cursor: pointer; 
+}
+ .navbar-toggle-button span:nth-of-type(2) {
+    top: 6px; 
+}
+  .navbar-toggle-button span:nth-of-type(3) {
+    top: 12px; 
+}
+
+/*Change class on click*/
+
+.navbar-toggle-button.open span.top {
+  transform: translateY(6px) translateX(0) rotate(45deg); 
+}
+.navbar-toggle-button.open span.middle {
+  opacity: 0; 
+}
+.navbar-toggle-button.open span.bottom {
+  transform: translateY(-6px) translateX(0) rotate(-45deg); 
+}
+
+#main-nav {
+  box-sizing:border-box;
+  position: fixed;
+  height:auto;
+  width:100%;
+  top:-100%;
+  left: 0;
+  color:#fff;
+  transition: all .4s; 
+  background:darkgray;
+  text-align:center;
+}
+
+#main-nav.open{
+  height:auto;
+  top:0;
+  }
+//----Site header----
 #site-header {
   display: flex;
   justify-content: space-between;
@@ -27,12 +87,7 @@
   padding-right: 0px;
 }
 
-#site-footer {
-  color: white;
-  padding: 60px 0;
-  background: #111;
-}
-
+//----Site main----
 #site-main {
   margin-bottom: 60px;
 }
@@ -98,5 +153,64 @@
   .record a:hover {
     color: white;
   }
+}
+
+//----Site footer----
+#site-footer {
+  color: black;
+  background: darkgray;
+  padding: 20px 0;
+  text-align: center;
+  position: fixed;
+  height: 150px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-top: -50px;
+  }
+  
+
+#site-footer .social-media {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 20px;
+}
+
+#site-footer .social-media li {
+  padding-right: 15px;
+  list-style: none;
+  text-decoration: none;
+}
+
+#site-footer .social-media li:last-child {
+  margin-right: 0;
+}
+
+#site-footer .social-facebook {
+  background: url(../public/images/facebook.png) no-repeat;
+  display: block;
+  width: 24px;
+  height: 24px;
+  text-indent: -9999px;
+  padding: 30px;
+}
+
+#site-footer .social-instagram {
+  background: url(../public/images/instagram.png) no-repeat;
+  display: block;
+  width: 24px;
+  height: 24px;
+  text-indent: -9999px;
+  padding: 30px;
+}
+
+.fine-print p {
+  margin: 10px;
+  padding: 0;
+  margin-left: 20px;
+  font-size: 12px;
+  display: inline-block;
+  vertical-align: top;
+}
 }
 

@@ -12,15 +12,22 @@
   </head>
   <header id="site-header">
     <h1><a href="/">trade-A-record <img class="logo" src="/images/trade-A-record.png" alt="record icon"></a> </h1>
-    <nav>
+      <div class="navbar-toggle-button" id="menu_trigger">
+        <span class="top"></span>
+        <span class="middle"></span>
+        <span class="bottom"></span>
+      </div>
+    <nav id="main-nav" class="navigation">
       <ul>
         {{#unless currentUser}}
-        <li><a href="/auth/signup">SignUp</a></li>
-        <li><a href="/auth/login">LogIn</a></li>
+        <li><a href="/auth/signup">Sign Up</a></li>
+        <li><a href="/auth/login">Log In</a></li>
+        <li><a href="#">Other stuff</a></li>
+        <li><a href="http://www.lolcats.com/" target="_blank">Cats</a></li>
         {{/unless}}
         {{#if currentUser}}
         <li>
-          <p>Logged in as: </p><a class="button" href="/profile">{{currentUser.username}}</a>
+          <p>Logged in as: </p><a href="/profile">{{currentUser.username}}</a>
           <form method="POST" action="/auth/logout">
             <button type="submit">Log Out</button>
           </form>
@@ -32,7 +39,16 @@
   <body class="container">
     {{{body}}}
   </body>
-  <footer>
+  <footer id="site-footer" role="contentinfo">
+    <div class="social-media">
+      <li><a class="social-instagram" href="http://www.instagram.com/" target="_blank">Instagram</a></li>
+      <li><a class="social-facebook" href="https://facebook.com/" target="_blank">Facebook</a></li>
+    </div>
+    <div class="fine-print">
     <p>Buy more vinyl!</p>
+    <p>Terms & Conditions</p>
+    <p>Meet the team</p>
+    </div>
   </footer>
+  <script src="/javascript/main.js"></script>
 </html>
