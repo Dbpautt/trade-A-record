@@ -2,20 +2,11 @@
 
 require('dotenv').config()
 
-const dotenv = require('dotenv')
-const result = dotenv.config()
-
 const mongoose = require('mongoose')
 
 const Record = require('../../models/record')
 const records = require('../../data/records')
 const User = require('../../models/user')
-
-if (result.error) {
-  throw result.error
-}
-
-console.log(result.parsed)
 
 function updateOwner (user, record, index) {
   return User.findOne({ username: user })
