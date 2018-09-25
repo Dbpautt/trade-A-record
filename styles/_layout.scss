@@ -90,9 +90,13 @@
   padding-right: 0px;
 }
 
-//----Site main----
 #site-main {
-  margin-bottom: 60px;
+  min-height: 365px;
+}
+
+#site-main > a {
+  text-decoration: none;
+  color: black;
 }
 
 .container {
@@ -165,20 +169,6 @@
   }
 }
 
-//----Site footer----
-//  {
-//   display: flex;
-//   align-content: center;
-//   flex-direction: row-reverse;
-//   color: black;
- 
-//   padding: 20px 0;
-//   height: 150px;
-//   bottom: 0px;
-//   left: 0px;
-//   right: 0px;
-//   }
-
 #site-footer .social-media li {
   padding-right: 15px;
   list-style: none;
@@ -196,9 +186,9 @@
 
 .fine-print > p {
   display: flex;
-  margin: 10px;
+  margin-bottom: 0px;
   padding: 0;
-  margin-left: 20px;
+  left: 0px;
   font-size: 12px;
 }
 
@@ -206,4 +196,5 @@ footer > div, footer > ul {
   padding: 2em;
   color: white;
   background: darkgray;
+  text-align: center;
 }
