@@ -10,6 +10,12 @@
     "seed-records": "node ./bin/seed/records.js",
     "seed-users": "node ./bin/seed/users.js"
   },
+
+"engines": {
+  "node": "10.9.0",
+  "npm": "6.2.0"
+},
+
   "dependencies": {
     "bcrypt": "^3.0.0",
     "connect-flash": "^0.1.1",
