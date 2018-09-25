@@ -23,11 +23,6 @@ h3 {
   font-size: 16px;
 }
 
-p {
-  padding-top: 5px;
-  margin-bottom: 5px;
-}
-
 ul, li{
   list-style: none;
 }
@@ -35,7 +30,6 @@ ul, li{
 .auth{
   font-size: 16px;
   font-weight: 700;
-  margin-bottom: 50px;
   color: white;
 }
 
@@ -47,6 +41,7 @@ ul, li{
 .navigation a{
   text-decoration: none;
   color: white; 
+  display: inline-block;
 }
 
 .record-info{

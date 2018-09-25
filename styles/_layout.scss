@@ -55,6 +55,9 @@
   background: $color-prime;
   opacity: 0.95;
   text-align:center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #main-nav.open{
@@ -69,7 +72,6 @@
   padding: 20px 0px;
 }
 
-
 #site-header h1 a {
   flex: 4;
   color: $color-prime;
@@ -80,18 +82,8 @@
   flex: 1;
 }
 
-.navigation ul {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  margin: auto 0;
-}
-
 #site-header li{
-  flex: 1;
-  list-style: none;
-  padding: 20px;
+  list-style: none; 
 }
 
 #site-header li:last-child{
@@ -174,59 +166,44 @@
 }
 
 //----Site footer----
-#site-footer {
-  display: flex;
-  color: black;
-  background: darkgray;
-  padding: 20px 0;
-  height: 150px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  flex: 3;
-  }
-  
-#site-footer .social-media {
-  list-style: none;
-  display: inline;
-  padding-top: 20px;
-  color: white;
-}
+//  {
+//   display: flex;
+//   align-content: center;
+//   flex-direction: row-reverse;
+//   color: black;
+ 
+//   padding: 20px 0;
+//   height: 150px;
+//   bottom: 0px;
+//   left: 0px;
+//   right: 0px;
+//   }
 
 #site-footer .social-media li {
   padding-right: 15px;
   list-style: none;
   text-decoration: none;
+  display: inline-block;
 }
 
 #site-footer .social-media li:last-child {
   margin-right: 0;
 }
 
-#site-footer .social-facebook {
-  background: url(../public/images/facebook.png) no-repeat;
-  display: block;
+#site-footer .social-media img {
   width: 24px;
-  height: 24px;
-  text-indent: -9999px;
-  padding: 30px;
 }
 
-#site-footer .social-instagram {
-  background: url(../public/images/instagram.png) no-repeat;
-  display: block;
-  width: 24px;
-  height: 24px;
-  text-indent: -9999px;
-  padding: 30px;
-}
-
-.fine-print p {
+.fine-print > p {
+  display: flex;
   margin: 10px;
   padding: 0;
   margin-left: 20px;
   font-size: 12px;
-  justify-content: center;
 }
 
-
+footer > div, footer > ul {
+  padding: 2em;
+  color: white;
+  background: darkgray;
+}

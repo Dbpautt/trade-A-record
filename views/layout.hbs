@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<html>
   <head>
     <title>trade-A-record</title>
     <link rel="shortcut icon" href="/images/trade-A-record.png" type="image/x-icon">
@@ -10,7 +9,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
   </head>
-  <header id="site-header">
+  <body>
+  <header id="site-header" class="container">
     <h1><a href="/">trade-A-record <img class="logo" src="/images/trade-A-record.png" alt="record icon"></a> </h1>
       <div class="navbar-toggle-button" id="menu_trigger">
         <span class="top"></span>
@@ -22,7 +22,6 @@
         {{#if currentUser}}
         <li><span class="auth">Hello, <a href="/profile">{{currentUser.username}}</a>!</span></li>
         {{/if}}
-        <li></li>
         <li><a href="/">Homepage</a></li>
         {{#if currentUser}}
         <li><a href="/profile">Profile</a></li>
@@ -33,12 +32,9 @@
         {{#if currentUser}}
         <li><a href="/profile/records">My Collection</a></li>
         {{/if}}
-        <li></li>
         {{#unless currentUser}}
         <li class="auth"><a href="/auth/signup">Sign Up</a></li>
         <li class="auth"><a href="/auth/login">Log In</a></li>
-        {{!-- <li><a href="https://www.songkick.com/metro_areas/28714-spain-barcelona" target="_blank">Other stuff</a></li>
-        <li><a href="http://www.lolcats.com/" target="_blank">Cats</a></li> --}}
         {{/unless}}
         {{#if currentUser}}
        
@@ -50,14 +46,14 @@
       </ul>
     </nav>
   </header>
-  <body class="container">
+  <main class="container">
     {{{body}}}
-  </body>
+  </main>  
   <footer id="site-footer" role="contentinfo">
-    <div class="social-media">
-      <li><a class="social-instagram" href="http://www.instagram.com/" target="_blank">Instagram</a></li>
-      <li><a class="social-facebook" href="https://facebook.com/" target="_blank">Facebook</a></li>
-    </div>
+    <ul class="social-media">
+      <li><a href="http://www.instagram.com/" target="_blank"><img src="/images/instagram.png" ></a></li>
+      <li><a href="https://facebook.com/" target="_blank"><img src="/images/facebook.png" ></a></li>
+    </ul>
     <div class="fine-print">
     <p>Buy more vinyl!</p>
     <p>Terms & Conditions</p>
@@ -65,4 +61,5 @@
     </div>
   </footer>
   <script src="/javascript/main.js"></script>
+ </body>
 </html>

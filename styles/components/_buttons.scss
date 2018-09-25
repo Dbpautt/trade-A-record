@@ -2,15 +2,23 @@
 
 
 .button {
-  padding: 5px 20px;
-  text-align: center;
-  font-size: 16px;
   text-decoration: none;
   color: #111 ;
   background-color: $color-button-bg;
-  border: 1px solid $color-fg;
+  border: 2px solid $color-fg;
+  font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
+  text-transform: uppercase;
+  border-radius: 0.25em;
+  border-style: solid;
+  border-width: 1px;
+  display: inline-block;
+  font-family: avenir, helvetica, roboto, arial, sans-serif;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5em;
+  padding: 1em 1.5em;
+  
   
   &.danger {
     color: $color-inverse-fg;
