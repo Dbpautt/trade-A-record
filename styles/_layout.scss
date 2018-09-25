@@ -91,7 +91,12 @@
 }
 
 #site-main {
-  min-height: 320px;
+  min-height: 365px;
+}
+
+#site-main > a {
+  text-decoration: none;
+  color: black;
 }
 
 .container {
@@ -164,9 +169,6 @@
   }
 }
 
-
-
-
 #site-footer .social-media li {
   padding-right: 15px;
   list-style: none;
@@ -184,9 +186,9 @@
 
 .fine-print > p {
   display: flex;
-  margin: 10px;
+  margin-bottom: 0px;
   padding: 0;
-  margin-left: 20px;
+  left: 0px;
   font-size: 12px;
 }
 
@@ -194,4 +196,5 @@ footer > div, footer > ul {
   padding: 2em;
   color: white;
   background: darkgray;
+  text-align: center;
 }
