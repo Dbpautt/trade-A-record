@@ -6,12 +6,9 @@ const router = express.Router();
 const ObjectId = require('mongoose').Types.ObjectId;
 
 const Records = require('../models/record');
-const Trade = require('../models/trade');
+const Trades = require('../models/trade');
 
 /* GET trades page. */
-router.get('/trades', (req, res, next) => {
-  res.render('trades', { title: 'Express' });
-});
 
 router.get('/:tradeId', (req, res, next) => {
   if (!req.session.currentUser) {
@@ -22,7 +19,7 @@ router.get('/:tradeId', (req, res, next) => {
   if (!ObjectId.isValid(id)) {
     return next();
   }
-  Trade.find({ _id: id })
+  Trades.find({ _id: id })
     .then((results) => {
       if (!results.length) {
         return next();
@@ -40,6 +37,47 @@ router.get('/:tradeId', (req, res, next) => {
               res.render('trade-detail', data);
             });
         });
+    })
+    .catch(next);
+});
+
+/* POST trades accept */
+
+router.post('/trades/:tradeId/accept', (req, res, next) => {
+  if (!req.session.currentUser) {
+    return res.redirect('/auth/signup');
+  }
+  const tradeId = req.params.tradeId;
+
+  Trades.findOne({ _id: tradeId });
+  console.log(tradeId)
+    .then((result) => {
+      if (!result) {
+        return next();
+      }
+      // return Records.findOneAndUpdate({ _id: offeredRecordId })
+      //   .then((offeredRecord) => {
+      //     if (!offeredRecord) {
+      //       return next();
+      //     }
+      //     if (!offeredRecord.owner.equals(req.session.currentUser._id)) {
+      //       return next();
+      //     }
+      //     const data = {
+      //       recordRequested: requestedRecordId,
+      //       recordOffered: offeredRecordId,
+      //       requestMaker: req.session.currentUser._id,
+      //       requestApprover: requestedRecord.owner };
+      //     const trade = new Trade(data);
+      //     return trade.save()
+      //       .then(() => {
+      //         console.log(trade._id);
+      //         var tradeID = trade._id;
+      //         res.redirect(`/trades/${tradeID}`);
+      //       });
+      //   });
+
+      res.redirect('/');
     })
     .catch(next);
 });
