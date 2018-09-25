@@ -128,6 +128,10 @@ Geo Location:
 - GET /profile
   - redirects to /signup if anonymous user
   - renders the user profile + records create form + pending requests inbound / outbound
+
+  - GET /profile/inbox
+  - redirects to /signup if anonymous user
+  - renders the pending trades 
   
 - POST /records
   - redirects to /signup if anonymous user
