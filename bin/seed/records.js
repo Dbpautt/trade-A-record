@@ -1,26 +1,26 @@
-'use strict'
+'use strict';
 
-require('dotenv').config()
+require('dotenv').config();
 
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-const Record = require('../../models/record')
-const records = require('../../data/records')
-const User = require('../../models/user')
+const Record = require('../../models/record');
+const records = require('../../data/records');
+const User = require('../../models/user');
 
 function updateOwner (user, record, index) {
   return User.findOne({ username: user })
     .then((owner) => {
       if (!owner) {
-        throw new Error('Unknown owner ' + user)
+        throw new Error('Unknown owner ' + user);
       }
-      record.owner[index] = owner._id
-    })
+      record.owner[index] = owner._id;
+    });
 }
 
 function updateOwnerId (record) {
-  const promisesOfUpdatingOwnerId = record.owner.map((user, index) => updateOwner(user, record, index))
-  return Promise.all(promisesOfUpdatingOwnerId)
+  const promisesOfUpdatingOwnerId = record.owner.map((user, index) => updateOwner(user, record, index));
+  return Promise.all(promisesOfUpdatingOwnerId);
 }
 
 mongoose.connect(process.env.MONGODB_URI, {
@@ -29,20 +29,20 @@ mongoose.connect(process.env.MONGODB_URI, {
   reconnectTries: Number.MAX_VALUE
 })
   .then(() => {
-    return Record.remove({})
+    return Record.remove({});
   })
   .then(() => {
-    const promisesOfUpdatingOwnerId = records.map((record) => updateOwnerId(record))
-    return Promise.all(promisesOfUpdatingOwnerId)
+    const promisesOfUpdatingOwnerId = records.map((record) => updateOwnerId(record));
+    return Promise.all(promisesOfUpdatingOwnerId);
   })
   .then(() => {
-    return Record.insertMany(records)
+    return Record.insertMany(records);
   })
   .then((result) => {
-    console.log('successfully added to database', result)
-    mongoose.connection.close()
+    console.log('successfully added to database', result);
+    mongoose.connection.close();
   })
 
   .catch((error) => {
-    console.log('there has been an error', error)
-  })
+    console.log('there has been an error', error);
+  });

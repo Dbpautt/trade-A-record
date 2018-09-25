@@ -1,9 +1,9 @@
-'use strict'
+'use strict';
 
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
 
-const Records = require('../models/record')
+const Records = require('../models/record');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
@@ -11,12 +11,12 @@ router.get('/', (req, res, next) => {
     .then((results) => {
       const data = {
         records: results
-      }
-      res.render('index', data)
+      };
+      res.render('index', data);
     })
     .catch((error) => {
-      console.log('there has been an error', error)
-    })
-})
+      console.log('there has been an error', error);
+    });
+});
 
-module.exports = router
+module.exports = router;

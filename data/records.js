@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const records = [{
   owner: ['user1'],
@@ -109,6 +109,6 @@ const records = [{
   genre: 'alternative',
   releaseYear: 1992,
   condition: 'as new'
-}]
+}];
 
-module.exports = records
+module.exports = records;

@@ -1,8 +1,8 @@
-'use strict'
+'use strict';
 
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
-const ObjectId = Schema.Types.ObjectId
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const ObjectId = Schema.Types.ObjectId;
 
 const recordSchema = new Schema({
   owner: {
@@ -44,8 +44,8 @@ const recordSchema = new Schema({
     enum: ['great', 'as new', 'good', 'used', 'scratched'],
     required: true
   }
-})
+});
 
-const Record = mongoose.model('Record', recordSchema)
+const Record = mongoose.model('Record', recordSchema);
 
-module.exports = Record
+module.exports = Record;

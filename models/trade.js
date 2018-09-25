@@ -1,8 +1,8 @@
-'use strict'
+'use strict';
 
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
-const ObjectId = Schema.Types.ObjectId
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const ObjectId = Schema.Types.ObjectId;
 
 const tradeSchema = new Schema({
   status: {
@@ -32,8 +32,8 @@ const tradeSchema = new Schema({
     required: true
   }
 
-})
+});
 
-const Trade = mongoose.model('Trade', tradeSchema)
+const Trade = mongoose.model('Trade', tradeSchema);
 
-module.exports = Trade
+module.exports = Trade;
