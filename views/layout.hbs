@@ -24,18 +24,22 @@
         {{/if}}
         <li></li>
         <li></li>
+        {{#if currentUser}}
         <li><a href="/profile">Profile</a></li>
         <li><a href="/profile/inbox">Inbox</a></li>
         <li><a href="/profile/requests">Requests</a></li>
+        {{/if}}
         <li><a href="/records">All Records</a></li>
+        {{#if currentUser}}
         <li><a href="/profile/records">My Collection</a></li>
+        {{/if}}
         <li></li>
         <li></li>
         {{#unless currentUser}}
         <li class="auth"><a href="/auth/signup">Sign Up</a></li>
         <li class="auth"><a href="/auth/login">Log In</a></li>
-        <li><a href="https://www.songkick.com/metro_areas/28714-spain-barcelona" target="_blank">Other stuff</a></li>
-        <li><a href="http://www.lolcats.com/" target="_blank">Cats</a></li>
+        {{!-- <li><a href="https://www.songkick.com/metro_areas/28714-spain-barcelona" target="_blank">Other stuff</a></li>
+        <li><a href="http://www.lolcats.com/" target="_blank">Cats</a></li> --}}
         {{/unless}}
         {{#if currentUser}}
        
