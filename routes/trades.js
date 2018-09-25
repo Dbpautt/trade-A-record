@@ -43,43 +43,42 @@ router.get('/:tradeId', (req, res, next) => {
 
 /* POST trades accept */
 
-router.post('/trades/:tradeId/accept', (req, res, next) => {
+router.post('/:tradeId/accept', (req, res, next) => {
   if (!req.session.currentUser) {
     return res.redirect('/auth/signup');
   }
   const tradeId = req.params.tradeId;
 
-  Trades.findOne({ _id: tradeId });
-  console.log(tradeId)
+  Trades.findOne({ tradeId })
     .then((result) => {
       if (!result) {
         return next();
       }
-      // return Records.findOneAndUpdate({ _id: offeredRecordId })
-      //   .then((offeredRecord) => {
-      //     if (!offeredRecord) {
-      //       return next();
-      //     }
-      //     if (!offeredRecord.owner.equals(req.session.currentUser._id)) {
-      //       return next();
-      //     }
-      //     const data = {
-      //       recordRequested: requestedRecordId,
-      //       recordOffered: offeredRecordId,
-      //       requestMaker: req.session.currentUser._id,
-      //       requestApprover: requestedRecord.owner };
-      //     const trade = new Trade(data);
-      //     return trade.save()
-      //       .then(() => {
-      //         console.log(trade._id);
-      //         var tradeID = trade._id;
-      //         res.redirect(`/trades/${tradeID}`);
-      //       });
-      //   });
-
-      res.redirect('/');
-    })
+    });
+  res.redirect('/profile/inbox')
     .catch(next);
 });
 
 module.exports = router;
+
+// return Records.findOneAndUpdate({ _id: offeredRecordId })
+//   .then((offeredRecord) => {
+//     if (!offeredRecord) {
+//       return next();
+//     }
+//     if (!offeredRecord.owner.equals(req.session.currentUser._id)) {
+//       return next();
+//     }
+//     const data = {
+//       recordRequested: requestedRecordId,
+//       recordOffered: offeredRecordId,
+//       requestMaker: req.session.currentUser._id,
+//       requestApprover: requestedRecord.owner };
+//     const trade = new Trade(data);
+//     return trade.save()
+//       .then(() => {
+//         console.log(trade._id);
+//         var tradeID = trade._id;
+//         res.redirect(`/trades/${tradeID}`);
+//       });
+//   });

@@ -1,3 +1,21 @@
-<h1>Hi, this is your profile</h1>
+<h2>Hi {{currentUser.username}}!, welcome your profile</h2>
+<div>
+  {{#each records}}
+    <li class="record">
+        <div>
+          <img src="{{this.coverImageURL}}" alt="">
+        </div>
+        <div>
+          <h2>{{this.name}}</h2>
+          <h3>{{this.artist}}</h3>
+        </div>
 
-<a href="/profile/records">Here are  your records</a>
+    </li>
+  {{/each}}
+</div>
+
+<a href="/profile/records">See more</a>
+
+<a href="/profile/inbox">Here are your incoming requests</a>
+
+

@@ -170,11 +170,12 @@ User model
 ```
 username: String // required
 password: String // required
-location: String //  Not required
+-----
+// backlog
+email:String  required
+location: String  Not required
 genrePreference: String, 
 required: false
-}
- // email:String // backlog required
 ```
 
 Records model
@@ -196,8 +197,8 @@ Trade model
  
 ```
 status: String enum: ['pending' , 'approved' , 'rejected'] - required,
-recordRequested: ObjectId<record.record-name> - required,
-recordOffered: ObjectId<record.record-name> - required,
+recordRequested: ObjectId<record> - required,
+recordOffered: ObjectId<record> - required,
 requestMaker: ObjectId<user> - required,
 requestApprover: ObjectId<user>, - required
 

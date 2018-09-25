@@ -7,7 +7,7 @@ const ObjectId = require('mongoose').Types.ObjectId;
 
 const Records = require('../models/record');
 const Trade = require('../models/trade');
-// const User = require('../models/user')
+// const User = require('../models/user');
 
 /* GET records page. */
 router.get('/', (req, res, next) => {
@@ -57,6 +57,7 @@ router.get('/:recordId/request', (req, res, next) => {
     return next();
   }
   Records.findOne({ _id: id })
+    .populate('owner')
     .then((result) => {
       if (!result) {
         return next();
