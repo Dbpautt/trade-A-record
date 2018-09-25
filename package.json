@@ -8,14 +8,13 @@
     "start": "node ./bin/www",
     "start-dev": "nodemon ./bin/www",
     "seed-records": "node ./bin/seed/records.js",
-    "seed-users": "node ./bin/seed/users.js"
+    "seed-users": "node ./bin/seed/users.js",
+    "postinstall": "npm run sass"
   },
-
-"engines": {
-  "node": "10.9.0",
-  "npm": "6.2.0"
-},
-
+  "engines": {
+    "node": "10.9.0",
+    "npm": "6.2.0"
+  },
   "dependencies": {
     "bcrypt": "^3.0.0",
     "connect-flash": "^0.1.1",
@@ -28,7 +27,8 @@
     "hbs": "~4.0.1",
     "http-errors": "~1.6.2",
     "mongoose": "^5.2.16",
-    "morgan": "~1.9.0"
+    "morgan": "~1.9.0",
+    "node-sass": "^4.9.3"
   },
   "devDependencies": {
     "eslint": "^5.6.0",
