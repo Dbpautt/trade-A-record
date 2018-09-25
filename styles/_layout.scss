@@ -90,9 +90,8 @@
   padding-right: 0px;
 }
 
-//----Site main----
 #site-main {
-  margin-bottom: 60px;
+  min-height: 320px;
 }
 
 .container {
@@ -165,19 +164,8 @@
   }
 }
 
-//----Site footer----
-//  {
-//   display: flex;
-//   align-content: center;
-//   flex-direction: row-reverse;
-//   color: black;
- 
-//   padding: 20px 0;
-//   height: 150px;
-//   bottom: 0px;
-//   left: 0px;
-//   right: 0px;
-//   }
+
+
 
 #site-footer .social-media li {
   padding-right: 15px;
