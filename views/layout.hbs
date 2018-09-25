@@ -23,7 +23,7 @@
         <li><span class="auth">Hello, <a href="/profile">{{currentUser.username}}</a>!</span></li>
         {{/if}}
         <li></li>
-        <li></li>
+        <li><a href="/">Homepage</a></li>
         {{#if currentUser}}
         <li><a href="/profile">Profile</a></li>
         <li><a href="/profile/inbox">Inbox</a></li>
@@ -33,7 +33,6 @@
         {{#if currentUser}}
         <li><a href="/profile/records">My Collection</a></li>
         {{/if}}
-        <li></li>
         <li></li>
         {{#unless currentUser}}
         <li class="auth"><a href="/auth/signup">Sign Up</a></li>
