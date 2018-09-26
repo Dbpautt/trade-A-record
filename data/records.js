@@ -34,7 +34,7 @@ const records = [{
   condition: 'As new'
 },
 {
-  owner: ['Yenderly'],
+  owner: ['Diana'],
   name: 'G.I. Blues',
   isActive: true,
   artist: 'Elvis',
@@ -45,7 +45,7 @@ const records = [{
   condition: 'Used'
 },
 {
-  owner: ['Barbara'],
+  owner: ['Diana'],
   name: 'Justice',
   isActive: true,
   artist: 'Justice',
@@ -56,7 +56,7 @@ const records = [{
   condition: 'As new'
 },
 {
-  owner: ['Axel'],
+  owner: ['Diana'],
   name: 'Nevermind',
   isActive: true,
   artist: 'Nirvana',
@@ -67,7 +67,7 @@ const records = [{
   condition: 'Good'
 },
 {
-  owner: ['Franci'],
+  owner: ['Diana'],
   name: 'Free the Universe',
   isActive: true,
   artist: 'Major Lazer',
@@ -89,7 +89,7 @@ const records = [{
   condition: 'Good'
 },
 {
-  owner: ['Barbara'],
+  owner: ['Diana'],
   name: 'Sex Style',
   isActive: true,
   artist: 'Kool Keith',
@@ -100,7 +100,7 @@ const records = [{
   condition: 'Scratched'
 },
 {
-  owner: ['Jonathan'],
+  owner: ['Diana'],
   name: 'Reign In Blood',
   isActive: true,
   artist: 'Slayer',
