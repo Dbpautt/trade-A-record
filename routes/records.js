@@ -37,6 +37,8 @@ router.get('/:recordId', (req, res, next) => {
     return next();
   }
   Records.findOne({ _id: id })
+    .populate('owner')
+
     .then((result) => {
       if (!result) {
         return next();
@@ -62,7 +64,6 @@ router.get('/:recordId/request', (req, res, next) => {
     return next();
   }
   Records.findOne({ _id: id })
-    .populate('owner')
     .then((result) => {
       if (!result) {
         return next();

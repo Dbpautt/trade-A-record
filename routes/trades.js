@@ -70,32 +70,26 @@ router.post('/:tradeId/accept', (req, res, next) => {
     })
     .catch(next);
 
-  //         const data = {
-  //           trade: trade.requestApprover,
-  //           recordRequested: requestedRecordId,
-  //           recordOffered: offeredRecordId,
-  //           requestMaker: req.session.currentUser._id,
-  //           requestApprover: requestedRecord.owner };
-  //         const trade = new Trade(data);
-  //         return trade.save()
-  //           .then(() => {
-  //             console.log(trade._id);
-  //             var tradeID = trade._id;
-  //             res.redirect(`/profile/inbox`);
-  //           });
+  // Trade.findOne({ _id: tradeId })
+  //   .then((trade) => {
+  //     if (!trade) {
+  //       return next();
+  //     }
+  //     if (!trade.requestApprover._id.equals(req.session.currentUser._id)) {
+  //       return next();
+  //     }
+  //     return Record.findByIdAndUpdate(trade.recordOffered, { owner: trade.requestApprover })
+  //       .then(() => {
+  //         return Record.findByIdAndUpdate(trade.recordRequested, { owner: trade.requestMaker });
+  //       })
+  //       .then(() => {
+  //         return Trade.findByIdAndUpdate(tradeId, { status: 'approved' });
   //       });
-  // //   });
+  //   })
+  //   .then(() => {
+  //     res.redirect('/profile');
+  //   })
   //   .catch(next);
 });
 
-// return Record.findOneAndUpdate({ _id: offeredRecordId })
-//   .then((offeredRecord) => {
-//     if (!offeredRecord) {
-//       return next();
-//     }
-//     if (!offeredRecord.owner.equals(req.session.currentUser._id)) {
-//       return next();
-//     }
-
-//   });
 module.exports = router;
