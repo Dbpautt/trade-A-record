@@ -5,7 +5,7 @@
 .navbar-toggle-button {
   z-index: 100;
   position: fixed;
-  top: 30px;
+  top: 25px;
   right: 25px;
   margin-left: -15px;
   height: 30px;
@@ -68,19 +68,10 @@
 
 //----Site header----
 #site-header {
+  height: 70px;
   display: flex;
   justify-content: space-between;
   padding: 20px 0px;
-}
-
-#site-header h1 a {
-  flex: 4;
-  color: $color-prime;
-  text-decoration: none;
-}
-
-#site-header main-nav {
-  flex: 1;
 }
 
 #site-header li{
@@ -89,6 +80,11 @@
 
 #site-header li:last-child{
   padding-right: 0px;
+}
+
+#site-header .logo{
+  height: 100%;
+  text-align: left
 }
 
 #site-main {
@@ -107,6 +103,13 @@
 section {
   margin-bottom: 20px;
   padding-top: 20px;
+}
+
+.landing {
+  height: 100%;
+  background: url(https://i.pinimg.com/originals/16/1a/a3/161aa36d31b675853905ef60fce2768c.jpg);
+  background-size: cover;
+  position: relative;
 }
 
 .record-list {
@@ -221,16 +224,13 @@ section {
 }
 
 
-#site-footer .social-media li {
-  padding-right: 15px;
+#site-footer li {
+  padding: 0 5px;
   list-style: none;
   text-decoration: none;
   display: inline-block;
 }
 
-#site-footer .social-media li:last-child {
-  margin-right: 0;
-}
 
 #site-footer .social-media img {
   width: 24px;
@@ -245,7 +245,7 @@ section {
 }
 
 footer > div, footer > ul {
-  padding: 2em;
+  padding: 10px;
   color: white;
   background: darkgray;
   text-align: center;
