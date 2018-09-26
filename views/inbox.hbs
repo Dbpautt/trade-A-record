@@ -7,12 +7,15 @@
       <li class="request-list">
         <div class="request {{this.status}}">
           <div class="req-element">
+            <h4>Requested:</h4>
             <img src="{{this.recordRequested.coverImageURL}}" alt="">
           </div>
           <div class="req-element">
+            <h4>Offered:</h4>
             <img src="{{this.recordOffered.coverImageURL}}" alt="">
           </div>
           <div class="req-element">
+            <h4>Action:</h4>
             <form action="/trades/{{this.id}}/accept" method="POST">
                 <button class="button accept">Accept</button>
               </form>
@@ -32,20 +35,20 @@
       <li class="request-list">
         <div class="request {{this.status}}">
           <div class="req-element">
+            <h4>Requested:</h4>
             <img src="{{this.recordRequested.coverImageURL}}" alt="">
           </div>
           <div class="req-element">
+            <h4>Offered:</h4>
             <img src="{{this.recordOffered.coverImageURL}}" alt="">
           </div>
           <div class="req-element">
-            {{#pending this.status}}
-              <form action="/trades/{{this.id}}/accept" method="POST">
-                <button class="button accept">Accept</button>
-              </form>
-              <form action="/trades/{{this.id}}/reject" method="POST">
-                <button class="button reject">Reject</button>
-              </form>
-            {{/pending}}
+            {{#approved this.status}}
+              <div class="req-element">
+                <h4>Status:</h4>
+                <img src="/images/approved-icon.png" alt="">
+              </div>
+            {{/approved}}
           </div>
         </div>
       </li>
@@ -65,14 +68,12 @@
             <img src="{{this.recordOffered.coverImageURL}}" alt="">
           </div>
           <div class="req-element">
-            {{#pending this.status}}
-              <form action="/trades/{{this.id}}/accept" method="POST">
-                <button class="button accept">Accept</button>
-              </form>
-              <form action="/trades/{{this.id}}/reject" method="POST">
-                <button class="button reject">Reject</button>
-              </form>
-            {{/pending}}
+            {{#rejected this.status}}
+              <div class="req-element">
+                <h4>Status:</h4>
+                <img src="/images/rejected-icon.png" alt="">
+              </div>
+            {{/rejected}}
           </div>
         </div>
       </li>

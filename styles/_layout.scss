@@ -102,6 +102,8 @@ section {
 }
 
 .landing {
+  display: table-cell;
+  vertical-align: middle;
   height: 87vh;
   background: linear-gradient(0deg,rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url(https://i.pinimg.com/originals/16/1a/a3/161aa36d31b675853905ef60fce2768c.jpg);
   background-size: cover;
@@ -110,8 +112,10 @@ section {
 }
 
 .landing div {
+  display: inline-block;
   padding: 20px;
   margin: auto 0;
+  position: relative
 }
 
 .record-list {
@@ -125,10 +129,6 @@ section {
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
   padding: 10px;
   margin-bottom: 10px;
-}
-
-.record:hover {
-  background-color: #ff4848;
 }
 
 .record img {
@@ -154,6 +154,18 @@ section {
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
   padding: 10px;
   margin-bottom: 10px;
+
+  &.pending {
+    background-color: $color-pending;
+  }
+
+  &.approved {
+    background-color: $color-approved;
+  }
+
+  &.rejected {
+    background-color: $color-rejected;
+  }
 }
 
 .req-element {
@@ -190,10 +202,6 @@ section {
     text-transform: capitalize;
   }
 
-  .record a:hover {
-    color: white;
-  }
-}
 
 @media (min-width: 768px) {
   .container {
@@ -204,6 +212,15 @@ section {
   .record-list {
     justify-content: space-between;
   }
+
+  .record:hover {
+    background-color: #ff4848;
+  }
+
+  .record a:hover {
+    color: white;
+  }
+}
 
   .record {
     width: 30%;
@@ -225,30 +242,25 @@ section {
   }
 }
 
-
-#site-footer li {
-  padding: 0 5px;
-  list-style: none;
-  text-decoration: none;
-  display: inline-block;
-}
-
-
-#site-footer .social-media img {
-  width: 24px;
-}
-
-.fine-print > p {
-  display: flex;
-  margin-bottom: 0px;
-  padding: 0;
-  left: 0px;
-  font-size: 12px;
-}
-
-footer > div, footer > ul {
-  padding: 10px;
+#site-footer {
   color: white;
-  background: darkgray;
+  background: $color-prime;
   text-align: center;
+  padding: 20px 0;
+
+  li {
+    padding: 0 5px;
+    font-size: 12px;
+    list-style: none;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  
+  .social-media img {
+    width: 24px;
+    margin-bottom: 0;
+  }
+
 }
+
