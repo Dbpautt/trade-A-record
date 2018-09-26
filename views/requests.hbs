@@ -1,4 +1,4 @@
-<h2>Here are your trade requests</h2>
+<h2>Here are the requests you've made</h2>
 <h3>Pending requests: </h3>
 
 <ul>
@@ -11,14 +11,6 @@
           </div>
           <div class="req-element">
             <img src="{{this.recordOffered.coverImageURL}}" alt="">
-          </div>
-          <div class="req-element">
-            <form action="/trades/{{this.id}}/accept" method="POST">
-                <button class="button accept">Accept</button>
-              </form>
-              <form action="/trades/{{this.id}}/reject" method="POST">
-                <button class="button reject">Reject</button>
-              </form>
           </div>
         </div>
       </li>
@@ -37,16 +29,6 @@
           <div class="req-element">
             <img src="{{this.recordOffered.coverImageURL}}" alt="">
           </div>
-          <div class="req-element">
-            {{#pending this.status}}
-              <form action="/trades/{{this.id}}/accept" method="POST">
-                <button class="button accept">Accept</button>
-              </form>
-              <form action="/trades/{{this.id}}/reject" method="POST">
-                <button class="button reject">Reject</button>
-              </form>
-            {{/pending}}
-          </div>
         </div>
       </li>
     {{/approved}}
@@ -63,16 +45,6 @@
           </div>
           <div class="req-element">
             <img src="{{this.recordOffered.coverImageURL}}" alt="">
-          </div>
-          <div class="req-element">
-            {{#pending this.status}}
-              <form action="/trades/{{this.id}}/accept" method="POST">
-                <button class="button accept">Accept</button>
-              </form>
-              <form action="/trades/{{this.id}}/reject" method="POST">
-                <button class="button reject">Reject</button>
-              </form>
-            {{/pending}}
           </div>
         </div>
       </li>
