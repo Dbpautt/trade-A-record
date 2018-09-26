@@ -11,7 +11,12 @@ const Trade = require('../models/trade');
 
 /* GET records page. */
 router.get('/', (req, res, next) => {
-  Records.find()
+  let query = {};
+  if (req.session.currentUser) {
+    query = { owner: { $nin: [ req.session.currentUser._id ] } };
+  }
+
+  Records.find(query)
     .then((results) => {
       const data = {
         records: results

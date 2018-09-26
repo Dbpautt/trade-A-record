@@ -5,10 +5,10 @@ const router = express.Router();
 
 const ObjectId = require('mongoose').Types.ObjectId;
 
-const Records = require('../models/record');
-const Trades = require('../models/trade');
+const Record = require('../models/record');
+const Trade = require('../models/trade');
 
-/* GET trades page. */
+/* GET trade page. */
 
 router.get('/:tradeId', (req, res, next) => {
   if (!req.session.currentUser) {
@@ -19,16 +19,16 @@ router.get('/:tradeId', (req, res, next) => {
   if (!ObjectId.isValid(id)) {
     return next();
   }
-  Trades.find({ _id: id })
+  Trade.find({ _id: id })
     .then((results) => {
       if (!results.length) {
         return next();
       }
       const requestedRecordId = results[0].recordRequested;
-      return Records.findOne({ _id: requestedRecordId })
+      return Record.findOne({ _id: requestedRecordId })
         .then((result) => {
           const offeredRecordId = results[0].recordOffered;
-          return Records.findOne({ _id: offeredRecordId })
+          return Record.findOne({ _id: offeredRecordId })
             .then((result2) => {
               const data = {
                 requestedRecord: result,
@@ -41,7 +41,7 @@ router.get('/:tradeId', (req, res, next) => {
     .catch(next);
 });
 
-/* POST trades accept */
+/* POST trade accept */
 
 router.post('/:tradeId/accept', (req, res, next) => {
   if (!req.session.currentUser) {
@@ -49,37 +49,46 @@ router.post('/:tradeId/accept', (req, res, next) => {
   }
   const tradeId = req.params.tradeId;
 
-  Trades.findOne({ _id: tradeId })
+  Trade.findOne({ _id: tradeId })
     .then((trade) => {
       if (!trade) {
         return next();
       }
-      return Trades.findOne({ _id: tradeId })
-        .then((appover) => {
-          if (!appover._id.equals(req.session.currentUser._id)) {
-            return next();
-          }
-
-          const data = {
-            trade: trade.requestApprover,
-            recordRequested: requestedRecordId,
-            recordOffered: offeredRecordId,
-            requestMaker: req.session.currentUser._id,
-            requestApprover: requestedRecord.owner };
-          const trade = new Trade(data);
-          return trade.save()
-            .then(() => {
-              console.log(trade._id);
-              var tradeID = trade._id;
-              res.redirect(`/profile/inbox`);
-            });
+      if (!trade.requestApprover._id.equals(req.session.currentUser._id)) {
+        return next();
+      }
+      return Record.findByIdAndUpdate(trade.recordOffered, { owner: trade.requestApprover })
+        .then(() => {
+          return Record.findByIdAndUpdate(trade.recordRequested, { owner: trade.requestMaker });
+        })
+        .then(() => {
+          return Trade.findByIdAndUpdate(tradeId, { status: 'approved' });
         });
-    });
-  res.redirect('/profile/inbox')
+    })
+    .then(() => {
+      res.redirect('/profile');
+    })
     .catch(next);
+
+  //         const data = {
+  //           trade: trade.requestApprover,
+  //           recordRequested: requestedRecordId,
+  //           recordOffered: offeredRecordId,
+  //           requestMaker: req.session.currentUser._id,
+  //           requestApprover: requestedRecord.owner };
+  //         const trade = new Trade(data);
+  //         return trade.save()
+  //           .then(() => {
+  //             console.log(trade._id);
+  //             var tradeID = trade._id;
+  //             res.redirect(`/profile/inbox`);
+  //           });
+  //       });
+  // //   });
+  //   .catch(next);
 });
 
-// return Records.findOneAndUpdate({ _id: offeredRecordId })
+// return Record.findOneAndUpdate({ _id: offeredRecordId })
 //   .then((offeredRecord) => {
 //     if (!offeredRecord) {
 //       return next();

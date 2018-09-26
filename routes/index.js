@@ -7,7 +7,11 @@ const Records = require('../models/record');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  Records.find()
+  let query = {};
+  if (req.session.currentUser) {
+    query = { owner: { $nin: [ req.session.currentUser._id ] } };
+  }
+  Records.find(query).limit(4)
     .then((results) => {
       const data = {
         records: results
