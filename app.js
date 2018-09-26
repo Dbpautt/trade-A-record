@@ -54,6 +54,14 @@ hbs.registerHelper('rejected', function (conditional, options) {
   }
 });
 
+hbs.registerHelper('notAvailable', function (conditional, options) {
+  if (conditional === 'no longer available') {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');

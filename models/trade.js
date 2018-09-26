@@ -7,7 +7,7 @@ const ObjectId = Schema.Types.ObjectId;
 const tradeSchema = new Schema({
   status: {
     type: String,
-    enum: ['pending', 'approved', 'rejected'],
+    enum: ['pending', 'approved', 'rejected', 'no longer available'],
     default: 'pending',
     required: true
   },

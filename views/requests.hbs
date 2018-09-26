@@ -51,3 +51,20 @@
     {{/rejected}}
   {{/each }}
 </ul>
+<h3>No longer available records: </h3>
+<ul>
+  {{#each trades}}
+    {{#notAvailable this.status}}
+      <li class="request-list">
+        <div class="request {{this.status}}">
+          <div class="req-element">
+            <img src="{{this.recordRequested.coverImageURL}}" alt="">
+          </div>
+          <div class="req-element">
+            <img src="{{this.recordOffered.coverImageURL}}" alt="">
+          </div>
+        </div>
+      </li>
+    {{/notAvailable}}
+  {{/each }}
+</ul>

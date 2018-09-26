@@ -64,6 +64,9 @@ router.post('/:tradeId/accept', (req, res, next) => {
         .then(() => {
           return Trade.findByIdAndUpdate(tradeId, { status: 'approved' });
         });
+      // .then(() => {
+      //   return Trade.findByIdAndUpdate(tradeId, { status: 'approved' });
+      // });
     })
     .then(() => {
       res.redirect('/profile/inbox');
