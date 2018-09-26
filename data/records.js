@@ -40,7 +40,7 @@ const records = [{
   artist: 'Elvis',
   coverImageURL: 'http://static.flickr.com/31/49567889_48b7a4ba44.jpg',
   description: 'G.I. Blues is a 1960 American musical comedy film directed by Norman Taurog and starring Elvis Presley, Juliet Prowse, and Robert Ivers',
-  genre: 'alternative',
+  genre: 'Alternative',
   releaseYear: 1960,
   condition: 'Used'
 },
