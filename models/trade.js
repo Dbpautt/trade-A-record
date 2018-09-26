@@ -17,7 +17,7 @@ const tradeSchema = new Schema({
     required: true
   },
   recordOffered: {
-    type: Object,
+    type: ObjectId,
     ref: 'Record',
     required: true
   },

@@ -49,17 +49,35 @@ router.post('/:tradeId/accept', (req, res, next) => {
   }
   const tradeId = req.params.tradeId;
 
-  Trades.findOne({ tradeId })
-    .then((result) => {
-      if (!result) {
+  Trades.findOne({ _id: tradeId })
+    .then((trade) => {
+      if (!trade) {
         return next();
       }
+      return Trades.findOne({ _id: tradeId })
+        .then((appover) => {
+          if (!appover._id.equals(req.session.currentUser._id)) {
+            return next();
+          }
+
+          const data = {
+            trade: trade.requestApprover,
+            recordRequested: requestedRecordId,
+            recordOffered: offeredRecordId,
+            requestMaker: req.session.currentUser._id,
+            requestApprover: requestedRecord.owner };
+          const trade = new Trade(data);
+          return trade.save()
+            .then(() => {
+              console.log(trade._id);
+              var tradeID = trade._id;
+              res.redirect(`/profile/inbox`);
+            });
+        });
     });
   res.redirect('/profile/inbox')
     .catch(next);
 });
-
-module.exports = router;
 
 // return Records.findOneAndUpdate({ _id: offeredRecordId })
 //   .then((offeredRecord) => {
@@ -69,16 +87,6 @@ module.exports = router;
 //     if (!offeredRecord.owner.equals(req.session.currentUser._id)) {
 //       return next();
 //     }
-//     const data = {
-//       recordRequested: requestedRecordId,
-//       recordOffered: offeredRecordId,
-//       requestMaker: req.session.currentUser._id,
-//       requestApprover: requestedRecord.owner };
-//     const trade = new Trade(data);
-//     return trade.save()
-//       .then(() => {
-//         console.log(trade._id);
-//         var tradeID = trade._id;
-//         res.redirect(`/trades/${tradeID}`);
-//       });
+
 //   });
+module.exports = router;
