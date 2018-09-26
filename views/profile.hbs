@@ -1,20 +1,42 @@
-<h2>Hi {{currentUser.username}}! Welcome to your profile.</h2>
-<div>
-  {{#each records}}
-    <li class="record">
-        <div>
-          <img src="{{this.coverImageURL}}" alt="">
-        </div>
-        <div>
-          <h2>{{this.name}}</h2>
-          <h3>{{this.artist}}</h3>
-        </div>
-
-    </li>
-  {{/each}}
+<h3>Hello {{currentUser.username}}!</h3
+<h3>Welcome to your profile.</h3>
+  <div class="profile-userpic">
+					<img src="#" class="img-responsive" alt="">
+	</div>
+<div class="profile-usertitle">
+    <div class="profile-usertitle-name">
+      Your username: Johnny Rocket
+    </div>
+    <div class="profile-nickname">
+      Dream profession: Rocker
+    </div> 
 </div>
+  
+  <div class="profile-usermenu">
+    <ul class="nav">
+        <li class="active">
+          <a href="/profile/records">Have a look at your collection!</a>
+        </li>
+        <li>
+          <a href="/profile/inbox">Here are your incoming requests: </a>
+        </li>
 
-<a href="/profile/records">See more</a>
-
-<a href="/profile/inbox">Here are your incoming requests</a>
-
+    <div>
+        {{#each records}}
+        <li class="record">
+        <div>
+            <img src="{{this.coverImageURL}}" alt="">
+        </div>
+        <div>
+            <h2>{{this.name}}</h2>
+            <h3>{{this.artist}}</h3>
+        </div>
+        </li>
+        {{/each}}
+        <div class="profile-userbuttons">
+          <button type="button" class="btn accept">Accept</button>
+          <button type="button" class="btn reject">Reject</button>
+        </div>
+    </div>
+    </ul>
+  </div>
