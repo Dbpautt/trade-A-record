@@ -1,0 +1,64 @@
+ <section class="section">
+  <h2>Here's the right spot to upload your next record</h2>
+
+  <form action="/records/create" method="post">
+
+    <div class="field">
+      <label>Record Name</label>
+      <input type="text" name="name" value="{{fields.name}}">
+    </div>
+
+    <div class="field">
+      <label>Artist</label>
+      <input type="text" name="artist" value="{{fields.artist}}">
+    </div>
+
+    <div class="field">
+      <label>Upload record cover URL here</label>
+      <input type="text" name="coverImageURL" value="{{fields.coverImageURL}}">
+    </div>
+
+    <div class="field">
+      <label>Add a short description</label>
+       <textarea name="description" value="{{fields.description}}" cols="80" rows="10" maxlength="500" wrap="hard" placeholder="Limit input to 500 characters"></textarea>
+    </div>
+
+    <div class="field">
+      <label>Genre</label>
+       <select name="type">
+        <option value="Choose the genre"></option>
+        <option value="party">pop</option>
+        <option value="talk">country</option>
+        <option value="presentation">rock</option>
+        <option value="party">metal</option>
+        <option value="talk">hip-hop</option>
+        <option value="presentation">punk</option>
+        <option value="presentation">alternative</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Release year?</label>
+      <input type="date" name="releaseYear" value="{{fields.releaseYear}}">
+    </div>
+
+    <div class="field">
+      <label>Is your vinyl in top condition?</label>
+      <select name="type">
+        <option value="as new">as new</option>
+        <option value="good">good</option>
+        <option value="used">used</option>
+        <option value="scratched">scratched</option>
+      </select>
+    </div>
+
+
+    <div class="field">
+      <button>Submit</button>
+      {{#if message}}
+      <p class="validation">{{message}}</p>
+      {{/if}}
+    </div>
+
+  </form>
+</section>

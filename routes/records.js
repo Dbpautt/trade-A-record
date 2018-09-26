@@ -26,6 +26,36 @@ router.get('/', (req, res, next) => {
     .catch(next);
 });
 
+/* Create a reocrd */
+router.get('/create', (req, res, next) => {
+  if (!req.session.currentUser) {
+    return res.redirect('/auth/signup');
+  }
+  const formData = req.flash('record-form-data');
+  const formErrors = req.flash('record-form-error');
+  const data = {
+    message: formErrors[0],
+    fields: formData[0]
+  };
+  res.render('record-create', data);
+});
+
+router.post('/create', (req, res, next) => {
+  const { name, artist, coverImageURL, description, genre, releaseYear, condition } = req.body;
+
+  if (!name || !artist || !coverImageURL || !description || !genre || !releaseYear || !condition) {
+    req.flash('record-form-error', 'Include all required information to make your record stand out!');
+    req.flash('record-form-data', { name, artist, coverImageURL, description, genre, releaseYear, condition });
+    return res.redirect('/records/create');
+  }
+  const record = new Records({ name, artist, coverImageURL, description, genre, releaseYear, condition });
+  record.save()
+    .then(() => {
+      res.redirect('/profile');
+    })
+    .catch(next);
+});
+
 /* GET records detail page. */
 router.get('/:recordId', (req, res, next) => {
   if (!req.session.currentUser) {
