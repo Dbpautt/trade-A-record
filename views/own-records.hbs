@@ -1,22 +1,18 @@
-<h1>Welcome to your record collection</h1>
+<h2>Welcome to your record collection</h2>
 
 <ul class="record-list">
     {{#each records}}
     <li class="record">
+      <a href="/records/{{this.id}}">
         <div>
           <img src="{{this.coverImageURL}}" alt="">
         </div>
-        <div>
-          <h2>{{this.name}}</h2>
-          <h3>{{this.artist}}</h3>
+        <div class="record-info">
+          <h3>{{this.name}}</h3>
+            <h4>{{this.artist}}</h4>
+            <p>{{this.condition}}, {{this.releaseYear}}</p>
         </div>
-
-      <div>
-      <a class="button" href="/records/{{this.id}}" class="button">More information</a>
-      {{!-- <form class="delete" action="/projects/{{this.id}}/delete" method="POST">
-        <button class="button danger">Delete</button>
-      </form> --}}
-      </div>
+      </a>  
     </li>
     {{/each}}
   </ul>

@@ -58,6 +58,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  z-index: 1;
 }
 
 #main-nav.open{
@@ -103,7 +104,7 @@
   margin: 0 20px;
 }
 
-.section {
+section {
   margin-bottom: 20px;
   padding-top: 20px;
 }
@@ -115,7 +116,7 @@
 
 .record {
   width: 100%;
-  margin: 2px;
+  margin: 1%;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
   padding: 10px;
   margin-bottom: 10px;
@@ -139,10 +140,30 @@
   color: #222;
 }
 
-@media (min-width: 768px) {
+.request-list {
+}
+
+.request {
+  display: flex;
+  width: 100%;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.req-element {
+  flex: 1;
+  margin: 10px;
+  width: 33%;
+}
+
+.req-element img {
+  width: 100%;
+}
+
+@media (min-width: 400px) {
   .container {
-    max-width: 728px;
-    margin: 0 auto;
+    margin: 0 20px;
   }
 
   .record-list {
@@ -153,21 +174,52 @@
   .record {
     width: 47%;
     position: relative;
-    margin: 0 10px 30px 10px;
+    margin: 0 1% 2% 1%;
   }
 
   .record>img {
     width: 100%;
   }
 
-  .record>h3 {
-    position: absolute;
+  .record-info > h3 {
+    text-transform: capitalize;
   }
 
   .record a:hover {
     color: white;
   }
 }
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 728px;
+    margin: 0 auto;
+  }
+
+  .record-list {
+    justify-content: space-between;
+  }
+
+  .record {
+    width: 30%;
+    position: relative;
+    margin: 0 1% 2% 1%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .record {
+    width: 23%;
+    position: relative;
+    margin: 0 1% 2% 1%;
+  }
+}
+
 
 #site-footer .social-media li {
   padding-right: 15px;

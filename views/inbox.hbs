@@ -1,15 +1,24 @@
-<h1>Here are your trade requests</h1>
-  <h3>Incoming trades: </h3>
+<h2>Here are your trade requests</h2>
+  <h3>Incoming trade requests: </h3>
+  <ul>
 {{#each trades}}
-  <div class="record {{this.status}}">
-    <p>{{this.status}}</p>
-    <img src="{{this.recordRequested.coverImageURL}}" alt="">
-    <img src="{{this.recordOffered.coverImageURL}}" alt="">
-    <form action="/trades/{{this.id}}/accept" method="POST">
-      <button>Accept</button>
-    </form>
-     <form action="/trades/{{this.id}}/reject" method="POST">
-      <button>Reject</button>
-    </form>
+<li class="request-list">
+  <div class="request {{this.status}}">
+    <div class="req-element">
+      <img src="{{this.recordRequested.coverImageURL}}" alt="">
+    </div>
+    <div class="req-element">
+      <img src="{{this.recordOffered.coverImageURL}}" alt="">
+    </div>
+    <div class="req-element">
+      <form action="/trades/{{this.id}}/accept" method="POST">
+        <button class="button accept">Accept</button>
+      </form>
+      <form action="/trades/{{this.id}}/reject" method="POST">
+        <button class="button reject">Reject</button>
+      </form>
+    </div>
   </div>
+</li>
 {{/each }}
+</ul>

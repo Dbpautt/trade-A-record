@@ -1,20 +1,25 @@
 body {
   color: #111;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Esteban', serif;
   font-size: 16px;
 }
 
 h1 {
   padding-top: 10px;
   margin-bottom: 5px;
-  font-size: 30px;
+  font-size: 40px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 h2 {
   padding-top: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
   font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
 
+section h2 {
+  text-align: center; 
 }
 
 h3 {
@@ -25,6 +30,10 @@ h3 {
 
 ul, li{
   list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 .auth{
@@ -45,8 +54,7 @@ ul, li{
 }
 
 .record-info{
-  text-align: center;
-  margin-bottom: 30px;
+  text-align: left;
   color: grey;
   text-decoration: none;
 }

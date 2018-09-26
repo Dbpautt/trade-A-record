@@ -24,4 +24,13 @@
     color: $color-inverse-fg;
     background-color: $color-button-danger-bg;
   }
+
+ &.accept {
+    background-color: green;
+  }
+  
+  &.reject {
+    background-color: red;
+  }
 }
+

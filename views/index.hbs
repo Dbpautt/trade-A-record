@@ -1,20 +1,22 @@
 <h2>Welcome to trade-A-record </h2>
 <p>trade-A-record is a Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 </p>
-<h3>records available</h3>
-<h3>All records</h3>
+<section>
+<h2>All records</h2>
 <ul class="record-list">
     {{#each records}}
-    <li>
+    <li class="record">
       <a href="/records/{{this.id}}">
-        <div class="record">
+        <div>
           <img src="{{this.coverImageURL}}" alt="">
         </div>
         <div class="record-info">
-          <h3>{{this.artist}}</h3>
           <h3>{{this.name}}</h3>
+            <h4>{{this.artist}}</h4>
+            <p>{{this.condition}}, {{this.releaseYear}}</p>
         </div>
       </a>  
     </li>
     {{/each}}
   </ul>
+  </section>
