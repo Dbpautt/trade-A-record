@@ -28,12 +28,30 @@ mongoose.connect(process.env.MONGODB_URI, {
   reconnectTries: Number.MAX_VALUE
 });
 
-//
-hbs.registerHelper('ifCond', function (v1, v2, options) {
-  if (v1 === v2) {
+// hbs helpers
+
+hbs.registerHelper('pending', function (conditional, options) {
+  if (conditional === 'pending') {
     return options.fn(this);
+  } else {
+    return options.inverse(this);
   }
-  return options.inverse(this);
+});
+
+hbs.registerHelper('approved', function (conditional, options) {
+  if (conditional === 'approved') {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
+
+hbs.registerHelper('rejected', function (conditional, options) {
+  if (conditional === 'rejected') {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
 });
 
 // view engine setup

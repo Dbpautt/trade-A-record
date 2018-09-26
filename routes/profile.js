@@ -50,4 +50,24 @@ router.get('/inbox', (req, res, next) => {
     .catch(next);
 });
 
+router.get('/requests', (req, res, next) => {
+  if (!req.session.currentUser) {
+    return res.redirect('/auth/signup');
+  }
+  Trades.find({ requestMaker: req.session.currentUser._id })
+    .populate('recordRequested')
+    .populate('recordOffered')
+
+    .then((results) => {
+      if (!results) {
+        return next();
+      }
+      const data = {
+        trades: results
+      };
+      res.render('requests', data);
+    })
+    .catch(next);
+});
+
 module.exports = router;
