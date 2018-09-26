@@ -11,7 +11,12 @@ const Trade = require('../models/trade');
 
 /* GET records page. */
 router.get('/', (req, res, next) => {
-  Records.find()
+  let query = {};
+  if (req.session.currentUser) {
+    query = { owner: { $nin: [ req.session.currentUser._id ] } };
+  }
+
+  Records.find(query)
     .then((results) => {
       const data = {
         records: results
@@ -32,6 +37,8 @@ router.get('/:recordId', (req, res, next) => {
     return next();
   }
   Records.findOne({ _id: id })
+    .populate('owner')
+
     .then((result) => {
       if (!result) {
         return next();
@@ -57,7 +64,6 @@ router.get('/:recordId/request', (req, res, next) => {
     return next();
   }
   Records.findOne({ _id: id })
-    .populate('owner')
     .then((result) => {
       if (!result) {
         return next();
