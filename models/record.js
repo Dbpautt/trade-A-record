@@ -32,7 +32,7 @@ const recordSchema = new Schema({
   },
   genre: {
     type: String,
-    enum: ['country', 'pop', 'rock', 'metal', 'hip-hop', 'punk', 'alternative'],
+    enum: ['Country', 'Pop', 'Rock', 'Metal', 'Hip-hop', 'Punk', 'Alternative'],
     required: true
   },
   releaseYear: {
@@ -41,7 +41,7 @@ const recordSchema = new Schema({
   },
   condition: {
     type: String,
-    enum: ['great', 'as new', 'good', 'used', 'scratched'],
+    enum: ['Great', 'As new', 'Good', 'Used', 'Scratched'],
     required: true
   }
 });
