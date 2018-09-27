@@ -3,16 +3,18 @@
 
 <section>
 
-    <a href="/records/create" class="button">Add a record</a>
-
-    <ul class="nav">
-        <li class="active">
-        <a href="/profile/records">Have a look at your collection!</a>
-        </li>
-        <li>
-        <a href="/profile/inbox">Here are your incoming requests: </a>
-        </li>
+    <div class="buttons">
+        <ul class="flex">
+            <li class="element">
+            <a class="button invert" href="/profile/inbox">Inbox</a>
+            </li>
+            <li class="element">
+            <a class="button invert" href="/profile/requests">Outbox</a>
+            </li>
         </ul>
+        <a href="/records/create" class="button">Add a record</a>
+    </div>
+
 
     <h2>Your records</h2>
     <hr>

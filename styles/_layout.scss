@@ -126,6 +126,16 @@ section {
   flex-wrap: wrap;
 }
 
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.empty-requests {
+  min-height: 100px;
+  color: grey;
+}
+
 .record {
   width: 100%;
   margin: 1%;
@@ -349,7 +359,10 @@ hr {
     display: inline-block;
   }
   
-  
+  a {
+    color: white;
+  }
+
   .social-media img {
     width: 24px;
     margin-bottom: 0;
