@@ -1,27 +1,37 @@
 <h1>Hello, <br> <strong>{{currentUser.username}}</strong>!</h1>
 <h3>Welcome to your profile.</h3>
-  
-  <div class="profile-usermenu">
+
+<section>
+
+    <a href="/records/create" class="button">Add a record</a>
+
     <ul class="nav">
         <li class="active">
-          <a href="/profile/records">Have a look at your collection!</a>
+        <a href="/profile/records">Have a look at your collection!</a>
         </li>
         <li>
-          <a href="/profile/inbox">Here are your incoming requests: </a>
+        <a href="/profile/inbox">Here are your incoming requests: </a>
         </li>
+        </ul>
 
-    <div>
+    <h2>Your records</h2>
+    <hr>
+
+    <ul class="record-list">
         {{#each records}}
-        <li class="record">
-        <div>
-            <img src="{{this.coverImageURL}}" alt="">
-        </div>
-        <div>
-            <h2>{{this.name}}</h2>
-            <h3>{{this.artist}}</h3>
-        </div>
-        </li>
+            <li class="record">
+            <a href="/records/{{this.id}}">
+                <div>
+                <img src="{{this.coverImageURL}}" alt="">
+                </div>
+                <div class="record-info">
+                <h3>{{this.name}}</h3>
+                    <h4>{{this.artist}}</h4>
+                    <p>{{this.condition}}, {{this.releaseYear}}</p>
+                </div>
+            </a>  
+            </li>
         {{/each}}
-    </div>
     </ul>
-  </div>
+
+</section>

@@ -14,21 +14,30 @@ router.get('/', (req, res, next) => {
   if (!req.session.currentUser) {
     return res.redirect('/');
   }
-  res.render('profile');
-});
-
-router.get('/records', (req, res, next) => {
   Records.find({ owner: req.session.currentUser._id })
     .then((results) => {
       const data = {
         records: results
       };
-      res.render('own-records', data);
+      res.render('profile', data);
     })
     .catch((error) => {
       console.log('there has been an error', error);
     });
 });
+
+// router.get('/records', (req, res, next) => {
+//   Records.find({ owner: req.session.currentUser._id })
+//     .then((results) => {
+//       const data = {
+//         records: results
+//       };
+//       res.render('own-records', data);
+//     })
+//     .catch((error) => {
+//       console.log('there has been an error', error);
+//     });
+// });
 
 router.get('/inbox', (req, res, next) => {
   if (!req.session.currentUser) {

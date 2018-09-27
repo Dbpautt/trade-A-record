@@ -34,13 +34,13 @@
         <li><a href="/profile/records">My Collection</a></li>
         {{/if}}
         {{#unless currentUser}}
-        <li class="auth"><a href="/auth/signup">Sign Up</a></li>
-        <li class="auth"><a href="/auth/login">Log In</a></li>
+        <li><a class="auth button secondary" href="/auth/signup">Sign Up</a></li>
+        <li><a class="auth button secondary" href="/auth/login">Log In</a></li>
         {{/unless}}
         {{#if currentUser}}
        
           <form method="POST" action="/auth/logout">
-            <button class="auth" type="submit">Log Out</button>
+            <button class="auth button secondary" type="submit">Log Out</button>
           </form>
        
         {{/if}}
