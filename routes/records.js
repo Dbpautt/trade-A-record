@@ -5,7 +5,7 @@ const router = express.Router();
 
 const ObjectId = require('mongoose').Types.ObjectId;
 
-const Records = require('../models/record');
+const Record = require('../models/record');
 const Trade = require('../models/trade');
 // const User = require('../models/user');
 
@@ -16,7 +16,7 @@ router.get('/', (req, res, next) => {
     query = { owner: { $nin: [ req.session.currentUser._id ] } };
   }
 
-  Records.find(query)
+  Record.find(query)
     .then((results) => {
       const data = {
         records: results
@@ -48,7 +48,7 @@ router.post('/create', (req, res, next) => {
     req.flash('record-form-data', { name, artist, coverImageURL, description, genre, releaseYear, condition });
     return res.redirect('/records/create');
   }
-  const record = new Records({ owner: req.session.currentUser._id, name, artist, coverImageURL, description, genre, releaseYear, condition });
+  const record = new Record({ owner: req.session.currentUser._id, name, artist, coverImageURL, description, genre, releaseYear, condition });
   record.save()
     .then(() => {
       res.redirect('/profile');
@@ -66,7 +66,7 @@ router.get('/:recordId', (req, res, next) => {
   if (!ObjectId.isValid(id)) {
     return next();
   }
-  Records.findOne({ _id: id })
+  Record.findOne({ _id: id })
     .populate('owner')
 
     .then((result) => {
@@ -93,7 +93,7 @@ router.get('/:recordId/request', (req, res, next) => {
   if (!ObjectId.isValid(id)) {
     return next();
   }
-  Records.findOne({ _id: id })
+  Record.findOne({ _id: id })
     .then((result) => {
       if (!result) {
         return next();
@@ -101,7 +101,7 @@ router.get('/:recordId/request', (req, res, next) => {
       if (result.owner.equals(req.session.currentUser._id)) {
         return next();
       }
-      return Records.find({ owner: req.session.currentUser._id })
+      return Record.find({ owner: req.session.currentUser._id })
         .then(results => {
           if (!ObjectId.isValid(id)) {
             return res.redirect('/records');
@@ -123,12 +123,12 @@ router.post('/:requestedRecordId/:offeredRecordId/request', (req, res, next) => 
   const requestedRecordId = req.params.requestedRecordId;
   const offeredRecordId = req.params.offeredRecordId;
 
-  Records.findOne({ _id: requestedRecordId })
+  Record.findOne({ _id: requestedRecordId })
     .then((requestedRecord) => {
       if (!requestedRecord) {
         return next();
       }
-      return Records.findOne({ _id: offeredRecordId })
+      return Record.findOne({ _id: offeredRecordId })
         .then((offeredRecord) => {
           if (!offeredRecord) {
             return next();
@@ -149,6 +149,23 @@ router.post('/:requestedRecordId/:offeredRecordId/request', (req, res, next) => 
               res.redirect(`/trades/${tradeID}`);
             });
         });
+    })
+    .catch(next);
+});
+
+router.post('/:recordId/delete', (req, res, next) => {
+  if (!req.session.currentUser) {
+    return res.redirect('/auth/signup');
+  }
+  const id = req.params.recordId;
+
+  if (!ObjectId.isValid(id)) {
+    return res.redirect('/profile');
+  }
+
+  Record.remove({ _id: id })
+    .then(() => {
+      res.redirect('/profile');
     })
     .catch(next);
 });
