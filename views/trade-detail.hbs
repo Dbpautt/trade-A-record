@@ -2,20 +2,62 @@
 
 <section>
 
-  <div class="detail">
-    <div>
-      <h3>Requested Record: </h3>
-      <img src="{{requestedRecord.coverImageURL}}" alt="">
+  <div class="fixed">
+  <h2>Trade Details</h2>
+    <div class="check-out details">
+      <div class="element">
+        <img src="{{requestedRecord.coverImageURL}}" alt="">
+      </div>
+      <div class="element">
+        <img src="/images/exchange.png" alt="">
+      </div>  
+      <div class="element">
+        <img src="{{offeredRecord.coverImageURL}}" alt="">
+      </div>
+    </div>
+  </div>
+      
+
+  <div class="check-out details">
+    <div class="element">
+      <h2>You want:</h2>
+      <h4>Name:</h4>
+      <p>{{requestedRecord.name}}</p>
+      <h4>Artist:</h4>
+      <p>{{requestedRecord.artist}}</p>
+      <h4>Current owner</h4>
+      <p>{{requestedRecord.owner.username}}</p>
+      <h4>Condition</h4>
+      <p>{{requestedRecord.condition}}</p>
+      <h4>Year</h4>
+      <p>{{requestedRecord.releaseYear}}</p>
+    </div>
+
+    <div class="element right">
+      <h2>You offer:</h2>
+      <h4>Name:</h4>
+      <p>{{offeredRecord.name}}</p>
+      <h4>Artist:</h4>
+      <p>{{offeredRecord.artist}}</p>
+      <h4>Current owner</h4>
+      <p>{{offeredRecord.owner.username}}</p>
+      <h4>Condition</h4>
+      <p>{{offeredRecord.condition}}</p>
+      <h4>Year</h4>
+      <p>{{offeredRecord.releaseYear}}</p>
+
     </div>
   </div>
 
-  <hr>
+  <hr>  
+  
 
-  <div class="detail">
-    <div>
-      <h3>Offered Record: </h3>
-      <img src="{{offeredRecord.coverImageURL}}" alt="">
-    </div>
+  <div class="buttons">
+    <a href="/profile" class="button">Go to Profile</a>
+    <form class="delete" action="/trades/{{tradeId}}/delete" method="POST">
+      <button class="button invert">Cancel Request</button>
+    </form>
   </div>
+
 
 </section>

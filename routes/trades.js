@@ -26,13 +26,16 @@ router.get('/:tradeId', (req, res, next) => {
       }
       const requestedRecordId = results[0].recordRequested;
       return Record.findOne({ _id: requestedRecordId })
+        .populate('owner')
         .then((result) => {
           const offeredRecordId = results[0].recordOffered;
           return Record.findOne({ _id: offeredRecordId })
+            .populate('owner')
             .then((result2) => {
               const data = {
                 requestedRecord: result,
-                offeredRecord: result2
+                offeredRecord: result2,
+                tradeId: id
               };
               res.render('trade-detail', data);
             });
@@ -106,6 +109,23 @@ router.post('/:tradeId/reject', (req, res, next) => {
         })
         .catch(next);
     });
+});
+
+router.post('/:tradeId/delete', (req, res, next) => {
+  if (!req.session.currentUser) {
+    return res.redirect('/auth/signup');
+  }
+  const id = req.params.tradeId;
+
+  if (!ObjectId.isValid(id)) {
+    return res.redirect('/profile');
+  }
+
+  Trade.remove({ _id: id })
+    .then(() => {
+      res.redirect('/');
+    })
+    .catch(next);
 });
 
 module.exports = router;

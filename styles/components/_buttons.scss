@@ -17,6 +17,7 @@
   letter-spacing: 0.15em;
   margin-bottom: 20px;
   padding: 20px 30px;
+  text-align: center;
   
   
   &.danger {
@@ -36,7 +37,7 @@
     color: $color-prime;
     border: 3px solid $color-prime;
     background-color: hsla(0, 0%, 0%, 0);
-    padding: 10px 50px;
+    padding: 10px 30px;
   }
 
   &.secondary {
@@ -45,5 +46,13 @@
     background-color: hsla(0, 0%, 0%, 0);
     padding: 10px 50px;
   }
+
+  &.select {
+    padding: 10px 30px;
+  }
 }
 
+
+.buttons {
+  display: grid;
+}
