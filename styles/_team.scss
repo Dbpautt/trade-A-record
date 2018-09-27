@@ -1,4 +1,71 @@
-.profile-userpic img {
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* ---- typography ---- */
+
+
+body {
+  font-family: 'Muli', sans-serif;
+  font-size: 16px;
+  line-height: 147%;
+}
+
+h1, h2, h3, h4 {
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+}
+
+h1 {
+  font-size: 24px;
+  line-height: 150%;
+  color: grey;
+}
+
+h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #e54009;
+  line-height: 150%;
+}
+
+h3 {
+  font-size: 20px;
+  padding-bottom: 15px;
+}
+
+h4 {
+  font-size: 16px;
+  padding-top: 20px;
+}
+
+p {
+  margin: 0;
+  text-align: center;
+}
+
+a {
+  color: #414141;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 800;
+}
+
+a:hover {
+  color: #e54009
+}
+
+.team img {
   float: none;
   margin: 0 auto;
   width: 40%;
