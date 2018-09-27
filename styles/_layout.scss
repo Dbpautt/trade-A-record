@@ -142,6 +142,14 @@ section img {
   width: 100%;
 }
 
+section img {
+  width: 100%;
+}
+
+div img {
+  width: 100%;
+}
+
 .record div {
   width: 100%;
   padding: 1px;
@@ -170,7 +178,78 @@ section img {
   &.rejected {
     background-color: $color-rejected;
   }
+
+  &.detail {
+    padding: 10px;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    border: 2px solid $color-prime;
+  }
+  
+  &.detail img {
+    clip-path: circle(49% at center);
+    width: 100%;
+    margin: auto 0;
+  }
+
+  .cover {
+    flex: 1;
+  }
+
+  .info {
+    flex: 2;
+    padding: 0 20px;
+    margin: auto 0;
+  }
+  
 }
+
+.select-list {
+  width: 100%;
+  margin-bottom: 10px;
+
+  .select {
+    padding: 10px;
+    display: flex;
+    box-shadow: 0px 2px 0px 0px  rgba(0, 0, 0, 0.1);
+  }
+
+  .cover {
+    flex: 1;
+  }
+
+  .info {
+    flex: 1;
+    padding: 0 20px;
+    margin: auto 0;
+  }
+
+}
+
+.check-out {
+  &.details {
+    display: flex;
+  }
+
+  .element {
+    flex: 1;
+    padding: 10px;
+  }
+
+  .element.right {
+    text-align: right;
+  }
+
+}
+
+
+.fixed {
+  position: sticky;
+  padding: 15px 0;
+  top: 0px;
+  background-color: white;
+  box-shadow: 0px 3px 0px 0px  rgba(0, 0, 0, 0.1);
+}
+
 
 .req-element {
   flex: 1;
@@ -207,10 +286,9 @@ section img {
 
 hr {
   max-width: 120px;
-  margin: 0 auto 10px auto;
+  margin: 0 auto 30px auto;
   
 }
-
 
 @media (min-width: 768px) {
   .container {

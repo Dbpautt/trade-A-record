@@ -1,33 +1,41 @@
-<h2>You are requesting to trade {{requestedRecord.name}} by {{requestedRecord.artist}}</h2>
   <section>
+  <div class="fixed">
+    <h2>Requested Record</h2>
+    <ul class="request detail">
+      <li class="cover">
+          <div>
+            <img src="{{requestedRecord.coverImageURL}}" alt="">
+          </div>
 
-    <div class="record">
-        <div>
-          <img src="{{requestedRecord.coverImageURL}}" alt="">
-        </div>
-    </div>
+      </li>
+      <li class="info">
+          <div>
+            <h3>{{requestedRecord.name}}</h3>
+            <h4>{{requestedRecord.artist}}</h4>
+            {{!-- <p>{{requestedRecord.releaseYear}}</p> --}}
+          </div>
 
-  <hr>
+      </li>
+    </ul>
+  </div>
+ 
   <h2>Select a record you want to trade</h2>
+  <hr>
   {{#unless myRecords.length}}
   <h4>Dude you have no records to trade <a class"button" href="/profile">create one</a> first!</h4>
   {{/unless}}
-  <ul class="record-list">
+  <ul class="select-list">
     {{#each myRecords }}
-    <li class="record">
-        <div>
-          <img src="{{this.coverImageURL}}" alt="">
-        </div>
-        <div>
-          <h2>{{this.name}}</h2>
-          <h3>{{this.artist}}</h3>
-        </div>
-
-      <div>
-      {{!-- <a class="button" href="/records/{{this.id}}" class="button">More information</a> --}}
-      <form action="/records/{{../requestedRecord.id}}/{{this.id}}/request" method="POST">
-        <button>Offer</button>
-      </form>
+    <li class="select">
+      <div class="cover">
+        <img src="{{this.coverImageURL}}" alt="">
+      </div>
+      <div class="info">
+        <h3>{{this.name}}</h3>
+        <h3>{{this.artist}}</h3>
+        <form action="/records/{{../requestedRecord.id}}/{{this.id}}/request" method="POST">
+          <button class="button select">Offer</button>
+        </form>
       </div>
     </li>
     {{/each}}
