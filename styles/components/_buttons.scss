@@ -14,10 +14,9 @@
   border-style: solid;
   border-width: 1px;
   display: inline-block;
-  font-family: avenir, helvetica, roboto, arial, sans-serif;
   letter-spacing: 0.15em;
-  margin: 20px 0;
-  padding: 1em 1.5em;
+  margin-bottom: 20px;
+  padding: 20px 30px;
   
   
   &.danger {
@@ -31,6 +30,20 @@
   
   &.reject {
     background-color: red;
+  }
+
+  &.invert {
+    color: $color-prime;
+    border: 3px solid $color-prime;
+    background-color: hsla(0, 0%, 0%, 0);
+    padding: 10px 50px;
+  }
+
+  &.secondary {
+    color: white;
+    border: 3px solid white;
+    background-color: hsla(0, 0%, 0%, 0);
+    padding: 10px 50px;
   }
 }
 
