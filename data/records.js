@@ -9,7 +9,8 @@ const records = [{
   description: 'A greatest hits collection of singles in its original vinyl format and is the best-selling reggae album of all-time',
   genre: 'Alternative',
   releaseYear: 1984,
-  condition: 'Scratched'
+  condition: 'Scratched',
+  snippet: 'https://open.spotify.com/embed/album/0tiPal8J7t3B9tPF7kGWDi'
 },
 {
   owner: ['Jonathan'],
@@ -20,7 +21,8 @@ const records = [{
   description: 'Come gather around people Wherever you roam and admit that the waters around you have grown',
   genre: 'Rock',
   releaseYear: 1964,
-  condition: 'Good'
+  condition: 'Good',
+  snippet: ''
 },
 {
   owner: ['Jonathan'],
@@ -31,7 +33,8 @@ const records = [{
   description: 'Produced by George Martin, this was the fifth UK album release by the band, and contains fourteen songs in its original British form',
   genre: 'Pop',
   releaseYear: 1965,
-  condition: 'As new'
+  condition: 'As new',
+  snippet: ''
 },
 {
   owner: ['Diana'],
@@ -42,7 +45,8 @@ const records = [{
   description: 'G.I. Blues is a 1960 American musical comedy film directed by Norman Taurog and starring Elvis Presley, Juliet Prowse, and Robert Ivers',
   genre: 'Alternative',
   releaseYear: 1960,
-  condition: 'Used'
+  condition: 'Used',
+  snippet: ''
 },
 {
   owner: ['Diana'],
@@ -53,7 +57,8 @@ const records = [{
   description: 'These guys are just so cool',
   genre: 'Alternative',
   releaseYear: '2007',
-  condition: 'As new'
+  condition: 'As new',
+  snippet: ''
 },
 {
   owner: ['Diana'],
@@ -64,7 +69,8 @@ const records = [{
   description: 'Twenty-seven years after its release, Nirvana\'s Nevermind remains one of the most exhilarating and pivotal albums of all time.',
   genre: 'Alternative',
   releaseYear: 1991,
-  condition: 'Good'
+  condition: 'Good',
+  snippet: ''
 },
 {
   owner: ['Diana'],
@@ -75,7 +81,8 @@ const records = [{
   description: 'Diplo has risen through the ranks and asserted himself as one of the most pioneering producers of the time.',
   genre: 'Alternative',
   releaseYear: 2012,
-  condition: 'As new'
+  condition: 'As new',
+  snippet: ''
 },
 {
   owner: ['Diana'],
@@ -86,7 +93,8 @@ const records = [{
   description: 'Dr Octagon!',
   genre: 'Hip-hop',
   releaseYear: 1999,
-  condition: 'Good'
+  condition: 'Good',
+  snippet: ''
 },
 {
   owner: ['Diana'],
@@ -97,7 +105,8 @@ const records = [{
   description: 'More of the good stuff from Dr Octagon',
   genre: 'Hip-hop',
   releaseYear: 1999,
-  condition: 'Scratched'
+  condition: 'Scratched',
+  snippet: ''
 },
 {
   owner: ['Diana'],
@@ -108,7 +117,8 @@ const records = [{
   description: 'The 1986 headbanger released on Def Jam. reign in Blood.',
   genre: 'Alternative',
   releaseYear: 1986,
-  condition: 'As new'
+  condition: 'As new',
+  snippet: ''
 }];
 
 module.exports = records;
