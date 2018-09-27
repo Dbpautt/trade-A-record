@@ -23,4 +23,8 @@ router.get('/', (req, res, next) => {
     });
 });
 
+router.get('/team', (req, res, next) => {
+  res.render('team');
+});
+
 module.exports = router;

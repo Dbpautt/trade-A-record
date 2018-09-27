@@ -30,9 +30,6 @@
         <li><a href="/profile/requests">Requests</a></li>
         {{/if}}
         <li><a href="/records">All Records</a></li>
-        {{#if currentUser}}
-        <li><a href="/profile/records">My Collection</a></li>
-        {{/if}}
         {{#unless currentUser}}
         <li><a class="auth button secondary" href="/auth/signup">Sign Up</a></li>
         <li><a class="auth button secondary" href="/auth/login">Log In</a></li>
@@ -57,7 +54,7 @@
     </ul>
     <ul class="fine-print">
     <li>Terms & Conditions</li>
-    <li>Meet the team</li>
+    <li><a href="/team" target="_blank">Meet the team</a></li>
     <li>Buy more vinyl!</li>
     </ul>
   </footer>
