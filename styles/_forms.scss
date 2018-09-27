@@ -1,5 +1,13 @@
+section.form {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  width: 100vh;
+  height: 87vh;
+}
+
 form {
-  margin-bottom: 10px;
+  margin: auto;
   padding-top: 20px;
 }
 
@@ -8,32 +16,62 @@ form.is-processing {
 }
 
 form .field {
-	margin-bottom: 20px;
+  margin-bottom: 20px;
+
 }
 
 form label {
-	display: block;
+  display: block;
+  padding-left: 10px;
 	margin-bottom: 10px;
 	font-style: bold;
 }
 
 form input {
-  padding: 5px;
-  font-size: 16px;
-  border: 2px solid darkgrey;
+  padding: 10px;
+  margin-bottom: 10px;
+  -webkit-appearance: none;
+  border-style: hidden;
+  border-bottom: 1px solid #bebebe;
+  font-size: 28px;
+  font-weight: 200;
 }
+
+form input:focus {
+  outline: none;
+}
+
 
 form .submit {
   padding-top: 20px;
+  text-align: center;
 }
 
-form .submit button {
-  padding: 5px 20px;
-  text-align: center;
+textarea {
+  resize: none;
+  padding: 10px;
+  margin-bottom: 10px;
+  -webkit-appearance: none;
+  border-style: hidden;
+  border: 1px solid #bebebe;
   font-size: 16px;
-  background-color: #222;
-  cursor: pointer;
-  color: #fff;
+  font-weight: 200;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+select {
+  -webkit-appearance: none; 
+  -moz-appearance: none;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 200px;
+}
+
+select:focus {
+  outline: none;
 }
 
 form .validation {

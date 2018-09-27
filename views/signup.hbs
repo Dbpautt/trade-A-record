@@ -1,18 +1,17 @@
-<h1>Sign - up</h1>
 
+<section class="form">
 
 <form method="POST" action="/auth/signup">
 
   <div class="field" >
     <label>Username</label>
-    <input type="text" name="username" value="{{fields.username}}" placeholder="Username"/>
+    <input type="text" name="username" value="{{fields.username}}" placeholder="Your Username"/>
   </div>
 
   <div class="field" >
     <label>Password: </label>
     <input type="password" name="password" placeholder="Your password"/>
   </div>
-  <div class="form-message">
     {{#if message1}}
       <p class="validation">{{message1}}</p>
     {{/if}}
@@ -22,6 +21,10 @@
   </div>
 
   <div class="field submit">
-    <button type="submit">Submit</button>
+    <button class="button" type="submit">Sign-up</button>
+    <p>or <a href="login">login</a>, if you already have an account.</p>
   </div>
 </form>
+
+
+</section>

@@ -1,11 +1,11 @@
-<h1>Login</h1>
 
+<section class="form">
 
 <form method="POST" action="/auth/login">
 
   <div class="field" >
     <label>Username</label>
-    <input type="text" name="username" value="{{fields.username}}" placeholder="Username"/>
+    <input type="text" name="username" value="{{fields.username}}" placeholder="Your Username"/>
   </div>
 
   <div class="field" >
@@ -19,6 +19,11 @@
       <p class="validation">{{message2}}</p>
     {{/if}}
   <div class="field submit">
-    <button type="submit">Submit</button>
+    <button class="button" type="submit">Login</button>
+    <hr>
+    <p>or <a href="signup">sign-up</a>, if you don't have an account.</p>
   </div>
 </form>
+
+
+</section>

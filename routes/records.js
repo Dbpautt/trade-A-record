@@ -48,7 +48,7 @@ router.post('/create', (req, res, next) => {
     req.flash('record-form-data', { name, artist, coverImageURL, description, genre, releaseYear, condition });
     return res.redirect('/records/create');
   }
-  const record = new Records({ name, artist, coverImageURL, description, genre, releaseYear, condition });
+  const record = new Records({ owner: req.session.currentUser._id, name, artist, coverImageURL, description, genre, releaseYear, condition });
   record.save()
     .then(() => {
       res.redirect('/profile');
@@ -156,16 +156,3 @@ router.post('/:requestedRecordId/:offeredRecordId/request', (req, res, next) => 
 // _______________________________________________________
 
 module.exports = router;
-
-// router.get('/records', (req, res, next) => {
-//   Records.find({ owner: req.session.currentUser._id })
-//     .then((results) => {
-//       const data = {
-//         records: results
-//       }
-//       res.render('own-records', data)
-//     })
-//     .catch((error) => {
-//       console.log('there has been an error', error)
-//     })
-// })

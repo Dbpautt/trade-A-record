@@ -3,6 +3,7 @@
 <ul class="record-list">
     {{#each records}}
     <li class="record">
+      <a href="/records/{{this.id}}">
         <div>
           <img src="{{this.coverImageURL}}" alt="">
         </div>
@@ -10,13 +11,7 @@
           <h2>{{this.name}}</h2>
           <h3>{{this.artist}}</h3>
         </div>
-
-      <div>
-        <a class="button" href="/records/{{this.id}}" class="button">More information</a>
-      {{!-- <form class="delete" action="/projects/{{this.id}}/delete" method="POST">
-        <button class="button danger">Delete</button>
-      </form> --}}
-      </div>
+      </a>
     </li>
     {{/each}}
   </ul>

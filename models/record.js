@@ -16,7 +16,8 @@ const recordSchema = new Schema({
   },
   isActive: {
     type: Boolean,
-    required: true
+    required: true,
+    default: true
   },
   artist: {
     type: String,

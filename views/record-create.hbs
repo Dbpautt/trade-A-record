@@ -1,4 +1,4 @@
- <section class="section">
+ <section class="form">
   <h2>Here's the right spot to upload your next record</h2>
 
   <form action="/records/create" method="post">
@@ -14,26 +14,35 @@
     </div>
 
     <div class="field">
-      <label>Upload record cover URL here</label>
+      <label>Add record cover URL here</label>
       <input type="text" name="coverImageURL" value="{{fields.coverImageURL}}">
     </div>
 
     <div class="field">
       <label>Add a short description</label>
-       <textarea name="description" value="{{fields.description}}" cols="80" rows="10" maxlength="500" wrap="hard" placeholder="Limit input to 500 characters"></textarea>
+       <textarea name="description" rows="5" cols="30" placeholder="Your description (max. 500 characters)" maxlength="500" value="{{fields.description}}"></textarea>
     </div>
 
     <div class="field">
       <label>Genre</label>
-       <select name="type">
-        <option value="Choose the genre"></option>
-        <option value="party">Pop</option>
-        <option value="talk">Country</option>
-        <option value="presentation">Rock</option>
-        <option value="party">Metal</option>
-        <option value="talk">Hip-hop</option>
-        <option value="presentation">Punk</option>
-        <option value="presentation">Alternative</option>
+       <select name="genre">
+        <option value="Pop">Pop</option>
+        <option value="Country">Country</option>
+        <option value="Rock">Rock</option>
+        <option value="Metal">Metal</option>
+        <option value="Hip-hop">Hip-hop</option>
+        <option value="Punk">Punk</option>
+        <option value="Alternative">Alternative</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Is your vinyl in top condition?</label>
+      <select name="condition">
+        <option value="As new">As new</option>
+        <option value="Good">Good</option>
+        <option value="Used">Used</option>
+        <option value="Scratched">Scratched</option>
       </select>
     </div>
 
@@ -42,19 +51,9 @@
       <input type="year" name="releaseYear" value="{{fields.releaseYear}}">
     </div>
 
-    <div class="field">
-      <label>Is your vinyl in top condition?</label>
-      <select name="type">
-        <option value="as new">As new</option>
-        <option value="good">Good</option>
-        <option value="used">Used</option>
-        <option value="scratched">Scratched</option>
-      </select>
-    </div>
-
 
     <div class="field">
-      <button>Submit</button>
+      <button class="button">Create Record</button>
       {{#if message}}
       <p class="validation">{{message}}</p>
       {{/if}}

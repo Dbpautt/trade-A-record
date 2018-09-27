@@ -1,17 +1,23 @@
 
 
-    <div class="record">
+    <div class="detail">
         <h1>{{record.name}}</h1>
         <div>
           <img src="{{record.coverImageURL}}" alt="">
         </div>
         <div>
-          <h3>Artist: {{record.artist}}</h3>
-          <h3>Description:{{record.description}}</h3>
-          <h3>Genre: {{record.genre}}</h3>
-          <h3>Release Year: {{record.releaseYear}}</h3>
-          <h3>Condition: {{record.condition}}</h3>
-          <h3>Owned by: {{record.owner.username}}</h3>
+          <h3>Artist:</h3>
+            <p>{{record.artist}}</p>
+          <h3>Description:</h3>
+            <p>{{record.description}}</p>
+          <h3>Genre:</h3>
+            <p>{{record.genre}}</p>
+          <h3>Release Year:</h3>
+            <p>{{record.releaseYear}}</p>
+          <h3>Condition:</h3>
+            <p>{{record.condition}}</p>
+          <h3>Owned by:</h3>
+            <p>{{record.owner.username}}</p>
 
         </div>
       {{!-- {{#ifCond records.owner currentUser._id}}
