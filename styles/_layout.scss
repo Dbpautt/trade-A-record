@@ -78,7 +78,7 @@
   list-style: none; 
 }
 
-#site-header .logo{
+#site-header img.logo{
   height: 100%;
   width: auto;
   text-align: left
@@ -178,9 +178,6 @@ img {
   width: 33%;
 }
 
-.req-element img {
-  width: 100%;
-}
 
 @media (min-width: 400px) {
   .container {
