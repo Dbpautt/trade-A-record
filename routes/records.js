@@ -77,14 +77,18 @@ router.get('/:recordId', (req, res, next) => {
       if (result.owner._id.equals(req.session.currentUser._id)) {
         isOwner = true;
       }
-      const data = {
-        record: result,
-        isOwner
-      };
+      Trade.find({ recordRequested: result })
+        .then((numberOfTrades) => {
+          const data = {
+            record: result,
+            isOwner,
+            ongoingRequests: numberOfTrades.length
+          };
+          res.render('record-detail', data);
+        });
       console.log(req.session.currentUser._id.toString());
       console.log(result.owner.toString());
       console.log('test end');
-      res.render('record-detail', data);
     })
     .catch(next);
 });
