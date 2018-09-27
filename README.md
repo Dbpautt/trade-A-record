@@ -216,7 +216,7 @@ The url to your repository and to your deployed project
 
 [Repository Link](https://github.com/Dbpautt/trade-A-record)
 
-[Deploy Link](http://heroku.com)
+[Deploy Link](http://trade-a-record.herokuapp.com/)
 
 ### Slides
 
