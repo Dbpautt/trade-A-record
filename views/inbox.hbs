@@ -1,119 +1,134 @@
 <h2>Here are your trade requests</h2>
-<h3>Pending requests: </h3>
 
-<ul>
-  {{#unless trades.length}}
-  <div class="empty-requests">
-    <h3>Dude you don't have any pending requests</h3>
-  </div>
-  {{/unless}}
-  {{#each trades}}
-    {{#pending this.status}}
-      <li class="request-list">
-        <div class="request {{this.status}}">
-          <div class="req-element">
-            <h4>Requested:</h4>
-            <img src="{{this.recordRequested.coverImageURL}}" alt="">
-          </div>
-          <div class="req-element">
-            <h4>Offered:</h4>
-            <img src="{{this.recordOffered.coverImageURL}}" alt="">
-          </div>
-          <div class="req-element">
-            <h4>Action:</h4>
-            <form action="/trades/{{this.id}}/accept" method="POST">
-                <button class="button accept">Accept</button>
-              </form>
+<section>
+  <h3>Pending requests: </h3>
+  <ul>
+    {{#each trades}}
+      {{#pending this.status}}
+        <li class="request-list">
+          <div class="request {{this.status}}">
+            <div class="req-element">
               <form action="/trades/{{this.id}}/reject" method="POST">
-                <button class="button reject">Reject</button>
+                <button class="reject"><i class="fas fa-ban"></i></button>
               </form>
+            </div>
+            <div class="req-element">
+              <img src="{{this.recordRequested.coverImageURL}}" alt="">
+            </div>
+            <div class="req-element">
+              <img src="/images/exchange.png" alt="">
+            </div>
+            <div class="req-element">
+              <img src="{{this.recordOffered.coverImageURL}}" alt="">
+            </div>
+            <div class="req-element">
+              <form action="/trades/{{this.id}}/accept" method="POST">
+                <button class="accept"><i class="fas fa-check-square"></i></button>
+              </form>
+            </div>
           </div>
+        </li>
+      {{!-- {{#empty this.status}}
+        <div class="empty-requests">
+          <h3>Good Job, there are no pending requests!</h3>
         </div>
-      </li>
-    {{/pending}}
-  {{/each }}
-</ul>
-<h3>Approved requests: </h3>
-<ul>
-  {{#unless trades.length}}
-  <div class="empty-requests">
-    <h3>Dude, you haven't approved any requests yet</h3>
-  </div>
-  {{/unless}}
-  {{#each trades}}
-    {{#approved this.status}}
-      <li class="request-list">
-        <div class="request {{this.status}}">
-          <div class="req-element">
-            <h4>Requested:</h4>
-            <img src="{{this.recordRequested.coverImageURL}}" alt="">
+        {{/empty}} --}}
+      {{/pending}}
+    {{/each }}
+  </ul>
+</section>
+
+<section>
+  <h3>Approved requests: </h3>
+  <ul>
+    {{#each trades}}
+      {{#approved this.status}}
+        <li class="request-list">
+          <div class="request {{this.status}}">
+            <div class="req-element">
+              <h4>Requested:</h4>
+              <img src="{{this.recordRequested.coverImageURL}}" alt="">
+            </div>
+            <div class="req-element">
+              <img src="/images/exchange.png" alt="">
+            </div>
+            <div class="req-element">
+              <h4>Offered:</h4>
+              <img src="{{this.recordOffered.coverImageURL}}" alt="">
+            </div>
+            <div class="req-element">
+              {{#approved this.status}}
+                <div class="req-element">
+                  <h4>Status:</h4>
+                  <img src="/images/approved-icon.png" alt="">
+                </div>
+              {{/approved}}
+            </div>
           </div>
-          <div class="req-element">
-            <h4>Offered:</h4>
-            <img src="{{this.recordOffered.coverImageURL}}" alt="">
+        </li>
+      {{!-- {{else}}
+        <div class="empty-requests">
+          <h3>You haven't approved any requests so far.</h3>
+        </div> --}}
+      {{/approved}}
+    {{/each }}
+  </ul>
+</section>
+
+<section>
+  <h3>Rejected requests: </h3>
+  <ul>
+    {{#each trades}}
+      {{#rejected this.status}}
+        <li class="request-list">
+          <div class="request {{this.status}}">
+            <div class="req-element">
+              <img src="{{this.recordRequested.coverImageURL}}" alt="">
+            </div>
+            <div class="req-element">
+              <img src="/images/exchange.png" alt="">
+            </div>
+            <div class="req-element">
+              <img src="{{this.recordOffered.coverImageURL}}" alt="">
+            </div>
+            <div class="req-element">
+              {{#rejected this.status}}
+                <div class="req-element">
+                  <h4>Status:</h4>
+                  <img src="/images/rejected-icon.png" alt="">
+                </div>
+              {{/rejected}}
+            </div>
           </div>
-          <div class="req-element">
-            {{#approved this.status}}
-              <div class="req-element">
-                <h4>Status:</h4>
-                <img src="/images/approved-icon.png" alt="">
-              </div>
-            {{/approved}}
-          </div>
-        </div>
-      </li>
-    {{/approved}}
-  {{/each }}
-</ul>
-<h3>Rejected requests: </h3>
-<ul>
-  {{#unless trades.length}}
-  <div class="empty-requests">
-    <h3>Nice trading Dude, you haven't rejected any requests yet</h3>
-  </div>
-  {{/unless}}
-  {{#each trades}}
-    {{#rejected this.status}}
-      <li class="request-list">
-        <div class="request {{this.status}}">
-          <div class="req-element">
-            <img src="{{this.recordRequested.coverImageURL}}" alt="">
-          </div>
-          <div class="req-element">
-            <img src="{{this.recordOffered.coverImageURL}}" alt="">
-          </div>
-          <div class="req-element">
-            {{#rejected this.status}}
-              <div class="req-element">
-                <h4>Status:</h4>
-                <img src="/images/rejected-icon.png" alt="">
-              </div>
-            {{/rejected}}
-          </div>
-        </div>
-      </li>
-    {{/rejected}}
-  {{/each }}
-</ul>
-<h3>No longer available records: </h3>
-<ul>
-  {{#unless trades.length}}
-  <div class="empty-requests">
-    <h3>Nice Dude, trades have been available so far</h3>
-  </div>
-  {{/unless}}
+        </li>
+      {{!-- {{else}}
+        <div class="empty-requests">
+          <h3>That's how it should be, you haven't rejected any requests yet. Keep on trading!</h3>
+        </div> --}}
+      {{/rejected}}
+    {{/each }}
+  </ul>
+</section>
+
+<section>
+  <h3>No longer available records: </h3>
   {{#each trades}}
     {{#notAvailable this.status}}
-      <li class="request-list">
-        <div class="request {{this.status}}">
-          <div class="req-element">
-            <img src="{{this.recordRequested.coverImageURL}}" alt="">
-          </div>
-          <div class="req-element">
-            <img src="{{this.recordOffered.coverImageURL}}" alt="">
-          </div>
-        </div>
-      </li>
-    {{/notAvailable}}
+        <ul>
+          <li class="request-list">
+            <div class="request {{this.status}}">
+              <div class="req-element">
+                <img src="{{this.recordRequested.coverImageURL}}" alt="">
+              </div>
+              <div class="req-element">
+                <img src="/images/exchange.png" alt="">
+              </div>
+              <div class="req-element">
+                <img src="{{this.recordOffered.coverImageURL}}" alt="">
+              </div>
+            </div>
+          </li>
+        {{/notAvailable}}
+      </ul>
   {{/each }}
-</ul>
+</section>
