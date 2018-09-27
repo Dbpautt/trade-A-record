@@ -2,6 +2,11 @@
 <h3>Pending requests: </h3>
 
 <ul>
+  {{#unless trades.length}}
+  <div class="empty-requests">
+    <h3>Dude you don't have any pending requests, start trading now!</h3>
+  </div>
+  {{/unless}}
   {{#each trades}}
     {{#pending this.status}}
       <li class="request-list">
@@ -19,6 +24,11 @@
 </ul>
 <h3>Approved requests: </h3>
 <ul>
+  {{#unless trades.length}}
+  <div class="empty-requests">
+    <h3>Maaaan, none of your requests have been approved yet. Start another one!</h3>
+  </div>
+  {{/unless}}
   {{#each trades}}
     {{#approved this.status}}
       <li class="request-list">
@@ -36,6 +46,11 @@
 </ul>
 <h3>Rejected requests: </h3>
 <ul>
+  {{#unless trades.length}}
+  <div class="empty-requests">
+    <h3>Sweet, none of your requests have been rejected. Keep going!</h3>
+  </div>
+  {{/unless}}
   {{#each trades}}
     {{#rejected this.status}}
       <li class="request-list">

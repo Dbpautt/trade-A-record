@@ -14,7 +14,7 @@
   transition: opacity .25s ease; 
 }
 .navbar-toggle-button span {
-  background: #000;
+  background: #111;
   border: none;
   height: 3px;
   width: 100%;
@@ -35,11 +35,15 @@
 
 .navbar-toggle-button.open span.top {
   transform: translateY(7px) translateX(0) rotate(45deg); 
+  background: white;
+
 }
 .navbar-toggle-button.open span.middle {
   opacity: 0; 
+  background: white;
 }
 .navbar-toggle-button.open span.bottom {
+  background: white;
   transform: translateY(-7px) translateX(0) rotate(-45deg); 
 }
 
@@ -124,6 +128,16 @@ section {
   padding-top: 20px;
   display: flex;
   flex-wrap: wrap;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.empty-requests {
+  min-height: 100px;
+  color: grey;
 }
 
 .record {
@@ -349,7 +363,10 @@ hr {
     display: inline-block;
   }
   
-  
+  a {
+    color: white;
+  }
+
   .social-media img {
     width: 24px;
     margin-bottom: 0;
