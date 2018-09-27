@@ -1,33 +1,35 @@
 
 
-    <section class="detail">
-        <h1>{{record.name}}</h1>
-        <div>
-          <img src="{{record.coverImageURL}}" alt="">
-        </div>
-        <div>
-          <h3>Artist:</h3>
-            <p>{{record.artist}}</p>
-          <h3>Description:</h3>
-            <p>{{record.description}}</p>
-          <h3>Genre:</h3>
-            <p>{{record.genre}}</p>
-          <h3>Release Year:</h3>
-            <p>{{record.releaseYear}}</p>
-          <h3>Condition:</h3>
-            <p>{{record.condition}}</p>
-          <h3>Owned by:</h3>
-            <p>{{record.owner.username}}</p>
+<section class="detail">
+    <h1>{{record.name}}</h1>
+    <div>
+      <img src="{{record.coverImageURL}}" alt="">
+    </div>
+    <div>
+      <h3>Artist:</h3>
+        <p>{{record.artist}}</p>
+      <h3>Description:</h3>
+        <p>{{record.description}}</p>
+      <h3>Genre:</h3>
+        <p>{{record.genre}}</p>
+      <h3>Release Year:</h3>
+        <p>{{record.releaseYear}}</p>
+      <h3>Condition:</h3>
+        <p>{{record.condition}}</p>
+      <h3>Owned by:</h3>
+        <p>{{record.owner.username}}</p>
+    </div>
+    {{#if isOwner}}
+      <div>
+        <form class="delete" action="/records/{{record.id}}/delete" method="POST">
+          <button class="button invert">Delete Record</button>
+        </form>
+      </div>
+    {{/if}}
+    {{#unless isOwner}}
+      <div>
+      <a class="button" href="/records/{{record.id}}/request" class="button">Request</a>
+      </div>
+    {{/unless }}
 
-        </div>
-      {{!-- {{#ifCond records.owner currentUser._id}}
-        hello is equal to hello
-      {{else}} --}}
-        <div>
-        <a class="button" href="/records/{{record.id}}/request" class="button">Request</a>
-        {{!-- <form class="delete" action="/projects/{{record.id}}/delete" method="POST">
-          <button class="button danger">Delete</button>
-        </form> --}}
-        </div>
-      {{!-- {{/ifCond}} --}}
-    </section>
+</section>

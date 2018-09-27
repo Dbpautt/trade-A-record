@@ -73,8 +73,13 @@ router.get('/:recordId', (req, res, next) => {
       if (!result) {
         return next();
       }
+      let isOwner = false;
+      if (result.owner._id.equals(req.session.currentUser._id)) {
+        isOwner = true;
+      }
       const data = {
-        record: result
+        record: result,
+        isOwner
       };
       console.log(req.session.currentUser._id.toString());
       console.log(result.owner.toString());
