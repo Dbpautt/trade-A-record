@@ -22,7 +22,7 @@ const records = [{
   genre: 'Rock',
   releaseYear: 1964,
   condition: 'Good',
-  snippet: ''
+  snippet: 'https://open.spotify.com/embed/album/7DZeLXvr9eTVpyI1OlqtcS'
 },
 {
   owner: ['Jonathan'],
@@ -34,7 +34,7 @@ const records = [{
   genre: 'Pop',
   releaseYear: 1965,
   condition: 'As new',
-  snippet: ''
+  snippet: 'https://open.spotify.com/embed/album/0PT5m6hwPRrpBwIHVnvbFX'
 },
 {
   owner: ['Diana'],
@@ -46,7 +46,7 @@ const records = [{
   genre: 'Alternative',
   releaseYear: 1960,
   condition: 'Used',
-  snippet: ''
+  snippet: 'https://open.spotify.com/embed/user/jons01/playlist/5sKNE5TAZE5iyuhfB63HaI'
 },
 {
   owner: ['Diana'],
@@ -58,7 +58,7 @@ const records = [{
   genre: 'Alternative',
   releaseYear: '2007',
   condition: 'As new',
-  snippet: ''
+  snippet: 'https://open.spotify.com/embed/album/4GGazqHvuKwxBjWLFaJkDL'
 },
 {
   owner: ['Diana'],
@@ -70,7 +70,7 @@ const records = [{
   genre: 'Alternative',
   releaseYear: 1991,
   condition: 'Good',
-  snippet: ''
+  snippet: 'https://open.spotify.com/embed/album/2guirTSEqLizK7j9i1MTTZ'
 },
 {
   owner: ['Diana'],
@@ -82,7 +82,7 @@ const records = [{
   genre: 'Alternative',
   releaseYear: 2012,
   condition: 'As new',
-  snippet: ''
+  snippet: 'https://open.spotify.com/embed/album/6Ax8Neb7dEif3KUlJwj2P8'
 },
 {
   owner: ['Diana'],
@@ -94,7 +94,7 @@ const records = [{
   genre: 'Hip-hop',
   releaseYear: 1999,
   condition: 'Good',
-  snippet: ''
+  snippet: 'https://open.spotify.com/embed/album/45Ls3xyYRSUIzZms4jH4BI'
 },
 {
   owner: ['Diana'],
@@ -106,7 +106,7 @@ const records = [{
   genre: 'Hip-hop',
   releaseYear: 1999,
   condition: 'Scratched',
-  snippet: ''
+  snippet: 'https://open.spotify.com/embed/album/24tZC54R5v3rg7PDETTLub'
 },
 {
   owner: ['Diana'],
@@ -118,7 +118,43 @@ const records = [{
   genre: 'Alternative',
   releaseYear: 1986,
   condition: 'As new',
-  snippet: ''
+  snippet: 'https://open.spotify.com/embed/album/2DumvqHl78bNXuvU9kQfPN'
+},
+{
+  owner: ['Barbara'],
+  name: 'Uncanny Valley',
+  isActive: true,
+  artist: 'Midnight Juggernauts',
+  coverImageURL: 'https://is5-ssl.mzstatic.com/image/thumb/Music2/v4/31/d4/7a/31d47a6f-4817-9ce6-b244-d60cef14b53b/cover.jpg/268x0w.jpg',
+  description: 'This is an original bought in Australia in 2013, with signatures.',
+  genre: 'Alternative',
+  releaseYear: 2013,
+  condition: 'Scratched',
+  snippet: 'https://open.spotify.com/embed/album/4VLB8R3dOvJ2NzsfR5E2Nt'
+},
+{
+  owner: ['Barbara'],
+  name: 'Adolescents',
+  isActive: true,
+  artist: 'Adolescents',
+  coverImageURL: 'http://www.amiright.com/album-covers/images/album_The-Adolescents-The-Adolescents.jpg',
+  description: 'Awesome album that includes the songs I hate kids and Amoeba.',
+  genre: 'Punk',
+  releaseYear: 1981,
+  condition: 'Good',
+  snippet: 'https://open.spotify.com/embed/artist/2sSmGd0x45FGBtjJwNBSFr'
+},
+{
+  owner: ['Barbara'],
+  name: 'Daft Punk',
+  isActive: true,
+  artist: 'Random Access Memories',
+  coverImageURL: 'http://static.daftpunk-anthology.com/wp-content/uploads/2013/06/RAM-unofficial-remixes_cover-dpa1.jpg',
+  description: 'An amazing mix of disco, soft rock, and prog-pop, along with some Broadway-style pop bombast and even a few pinches of their squelching stadium-dance aesthetic.',
+  genre: 'Alternative',
+  releaseYear: 2013,
+  condition: 'As new',
+  snippet: 'https://open.spotify.com/embed/album/4m2880jivSbbyEGAKfITCa'
 }];
 
 module.exports = records;

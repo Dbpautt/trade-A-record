@@ -6,6 +6,9 @@ const users = [{
 }, {
   username: 'Diana',
   password: '$2b$10$gNJTc/sva5.fNuTbqh4WQuW/hEa1qc.PoirLO2MKxQuYlcz.Nos7i'
+}, {
+  username: 'Barbara',
+  password: '$2b$10$4PBatLxbJMbxg.9lrdee4ewBiMmSwjU8gD9myZqgyTQ91yqg/XPiq'
 }];
 
 module.exports = users;
