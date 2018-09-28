@@ -46,6 +46,20 @@
     padding: 10px 30px;
   }
 
+
+  &.searchButton {
+    position: absolute;  
+    // right: -50px;
+    width: 40px;
+    height: 36px;
+    border: 1px solid $color-prime;
+    background: $color-prime;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+
   &.select {
     padding: 10px 30px;
   }
@@ -54,4 +68,5 @@
 
 .buttons {
   display: grid;
+}
 }

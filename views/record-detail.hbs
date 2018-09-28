@@ -20,6 +20,8 @@
       <h3>Owned by:</h3>
         <p>{{record.owner.username}}</p>
     </div>
+    <h3>Have a quick listen to this album:</h3>
+    <iframe src="{{record.snippet}}" width="100%" height="231" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     {{#if isOwner}}
       <div>
         <form class="delete" action="/records/{{record.id}}/delete" method="POST">

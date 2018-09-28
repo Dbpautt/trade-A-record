@@ -44,6 +44,10 @@ const recordSchema = new Schema({
     type: String,
     enum: ['Great', 'As new', 'Good', 'Used', 'Scratched'],
     required: true
+  },
+  snippet: {
+    type: String,
+    required: false
   }
 });
 
