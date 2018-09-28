@@ -41,17 +41,18 @@ router.get('/create', (req, res, next) => {
 });
 
 router.post('/create', (req, res, next) => {
-  const { name, artist, coverImageURL, description, genre, releaseYear, condition } = req.body;
+  const { name, artist, coverImageURL, description, genre, releaseYear, condition, snippet } = req.body;
 
   if (!name || !artist || !coverImageURL || !description || !genre || !releaseYear || !condition) {
     req.flash('record-form-error', 'Include all required information to make your record stand out!');
     req.flash('record-form-data', { name, artist, coverImageURL, description, genre, releaseYear, condition });
     return res.redirect('/records/create');
   }
-  const record = new Record({ owner: req.session.currentUser._id, name, artist, coverImageURL, description, genre, releaseYear, condition });
-  record.save()
+  const record = new Record({ owner: req.session.currentUser._id, name, artist, coverImageURL, description, genre, releaseYear, condition, snippet });
+  return record.save()
     .then(() => {
-      res.redirect('/profile');
+      const recordID = record._id;
+      res.redirect(`/records/${recordID}`);
     })
     .catch(next);
 });
@@ -86,9 +87,9 @@ router.get('/:recordId', (req, res, next) => {
           };
           res.render('record-detail', data);
         });
-      console.log(req.session.currentUser._id.toString());
-      console.log(result.owner.toString());
-      console.log('test end');
+      // console.log(req.session.currentUser._id.toString());
+      // console.log(result.owner.toString());
+      // console.log('test end');
     })
     .catch(next);
 });
