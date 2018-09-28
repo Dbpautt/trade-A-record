@@ -220,6 +220,18 @@ div img {
   
 }
 
+.action {
+  display: flex;
+  justify-content: center;
+
+  .spacing {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 14px;
+    color: #bbb; 
+  }
+}
+
 .select-list {
   width: 100%;
   margin-bottom: 10px;

@@ -7,26 +7,24 @@
    </div>
 </div> --}}
 
-<h1>All records</h1>
+<section>
+  <h1>All records</h1>
 
-<ul class="record-list">
-    {{#each records}}
-    <li class="record">
-      <a href="/records/{{this.id}}">
-        <div>
-          <img src="{{this.coverImageURL}}" alt="">
-        </div>
-        <div class="record-info">
-          <h3>{{this.name}}</h3>
-          <h4>{{this.artist}}</h4>
-          <p>{{this.condition}}, {{this.releaseYear}}</p>
-        </div>
-      </a>  
-    </li>
-    {{/each}}
-  </ul>
+  <ul class="record-list">
+      {{#each records}}
+      <li class="record">
+        <a href="/records/{{this.id}}">
+          <div>
+            <img src="{{this.coverImageURL}}" alt="">
+          </div>
+          <div class="record-info">
+            <h3>{{this.name}}</h3>
+            <h4>{{this.artist}}</h4>
+            <p>{{this.condition}}, {{this.releaseYear}}</p>
+          </div>
+        </a>  
+      </li>
+      {{/each}}
+    </ul>
+</section>
 
-  
-
-
-  

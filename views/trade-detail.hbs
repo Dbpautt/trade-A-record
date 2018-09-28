@@ -1,5 +1,3 @@
-<h2>Thank you for your request - here are the details</h2>
-
 <section>
 
   <div class="fixed">
@@ -50,13 +48,29 @@
   </div>
 
   <hr>  
-  
 
   <div class="buttons">
     <a href="/profile" class="button">Go to Profile</a>
+    {{#if isApprover}}
+    <div class="action">
+      <div class="spacing">
+        <form action="/trades/{{this.id}}/reject" method="POST">
+          <button><i class="fas fa-ban"></i></button>
+        </form>
+        <p>Reject request</p>
+      </div>
+      <div class="spacing">
+        <form action="/trades/{{this.id}}/accept" method="POST">
+          <button><i class="fas fa-check-square"></i></button>
+        </form>
+        <p>Accept request</p>
+      </div>
+    </div>
+    {{else}}
     <form class="delete" action="/trades/{{tradeId}}/delete" method="POST">
       <button class="button invert">Cancel Request</button>
     </form>
+    {{/if}}
   </div>
 
 

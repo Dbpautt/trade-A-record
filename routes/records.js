@@ -41,6 +41,9 @@ router.get('/create', (req, res, next) => {
 });
 
 router.post('/create', (req, res, next) => {
+  if (!req.session.currentUser) {
+    return res.redirect('/auth/signup');
+  }
   const { name, artist, coverImageURL, description, genre, releaseYear, condition, snippet } = req.body;
 
   if (!name || !artist || !coverImageURL || !description || !genre || !releaseYear || !condition) {
@@ -48,11 +51,12 @@ router.post('/create', (req, res, next) => {
     req.flash('record-form-data', { name, artist, coverImageURL, description, genre, releaseYear, condition });
     return res.redirect('/records/create');
   }
+
+  // @todo put in data variable and make line below shorter
   const record = new Record({ owner: req.session.currentUser._id, name, artist, coverImageURL, description, genre, releaseYear, condition, snippet });
   return record.save()
     .then(() => {
-      const recordID = record._id;
-      res.redirect(`/records/${recordID}`);
+      res.redirect(`/records/${record._id}`);
     })
     .catch(next);
 });
@@ -67,29 +71,22 @@ router.get('/:recordId', (req, res, next) => {
   if (!ObjectId.isValid(id)) {
     return next();
   }
+
   Record.findOne({ _id: id })
     .populate('owner')
-
     .then((result) => {
       if (!result) {
         return next();
-      }
-      let isOwner = false;
-      if (result.owner._id.equals(req.session.currentUser._id)) {
-        isOwner = true;
       }
       Trade.find({ recordRequested: result })
         .then((numberOfTrades) => {
           const data = {
             record: result,
-            isOwner,
+            isOwner: result.owner._id.equals(req.session.currentUser._id),
             ongoingRequests: numberOfTrades.length
           };
           res.render('record-detail', data);
         });
-      // console.log(req.session.currentUser._id.toString());
-      // console.log(result.owner.toString());
-      // console.log('test end');
     })
     .catch(next);
 });
@@ -133,6 +130,10 @@ router.post('/:requestedRecordId/:offeredRecordId/request', (req, res, next) => 
   const requestedRecordId = req.params.requestedRecordId;
   const offeredRecordId = req.params.offeredRecordId;
 
+  if (!ObjectId.isValid(requestedRecordId)) {
+    return next();
+  }
+
   Record.findOne({ _id: requestedRecordId })
     .then((requestedRecord) => {
       if (!requestedRecord) {
@@ -150,14 +151,13 @@ router.post('/:requestedRecordId/:offeredRecordId/request', (req, res, next) => 
             recordRequested: requestedRecordId,
             recordOffered: offeredRecordId,
             requestMaker: req.session.currentUser._id,
-            requestApprover: requestedRecord.owner };
+            requestApprover: requestedRecord.owner
+          };
           const trade = new Trade(data);
-          return trade.save()
-            .then(() => {
-              console.log(trade._id);
-              var tradeID = trade._id;
-              res.redirect(`/trades/${tradeID}`);
-            });
+          return trade.save();
+        })
+        .then((result) => {
+          res.redirect(`/trades/${result._id}`);
         });
     })
     .catch(next);
@@ -172,11 +172,23 @@ router.post('/:recordId/delete', (req, res, next) => {
   if (!ObjectId.isValid(id)) {
     return res.redirect('/profile');
   }
-
-  Record.remove({ _id: id })
+  Trade.updateMany({
+    $and: [
+      { $or: [
+        { recordRequested: id },
+        { recordOffered: id }
+      ] },
+      { status: 'pending' }
+    ] },
+  { $set: { status: 'no longer available' }
+  })
     .then(() => {
-      res.redirect('/profile');
+      return Record.remove({ _id: id })
+        .then(() => {
+          res.redirect('/profile');
+        });
     })
+
     .catch(next);
 });
 

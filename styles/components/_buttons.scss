@@ -19,17 +19,18 @@
   padding: 20px 30px;
   text-align: center;
   
- .accept {
-    // background-color: rgb(26, 160, 44);
+ &.accept {
+    background-color: transparent;
     border: 2px solid rgb(26, 160, 44);
-    padding: 10px 30px;
+    padding: 0 2px;
+    margin-bottom: 0;
   }
   
-  .reject {
-    // color: rgb(187, 55, 37);
-    // background-color: hsla(0, 0%, 0%, 0);
+  &.reject {
+    background-color: transparent;
     border: 3px solid rgb(187, 55, 37);
-    padding: 10px 30px;
+    padding: 5px;
+    margin-bottom: 0;
   }
 
   &.invert {
@@ -60,13 +61,14 @@
     cursor: pointer;
     font-size: 20px;
 
-  &.select {
-    padding: 10px 30px;
+    &.select {
+      padding: 10px 30px;
+    }
   }
-}
 
+
+}
 
 .buttons {
   display: grid;
-}
 }
